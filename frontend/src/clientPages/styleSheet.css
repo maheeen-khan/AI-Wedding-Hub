@@ -1,0 +1,84 @@
+.custom-navbar {
+  background: #ffffff;
+  padding: 18px 0;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #7b0000 !important;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  gap: 15px;
+}
+
+.nav-link {
+  color: #555 !important;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #7b0000 !important;
+  border-bottom: 2px solid #7b0000 !important;
+  transition: all 0.2s ease-out;
+}
+.nav-link:active {
+  color: #7b0000 !important;
+  border-bottom: 2px solid #7b0000 !important;
+}
+
+.active-link {
+  color: #7b0000 !important;
+  border-bottom: 2px solid #7b0000;
+}
+
+.search-icon {
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #7b0000;
+}
+
+.login-link {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+
+.signup-btn {
+  background: #7b0000 !important;
+  color: white;
+  text-decoration: none;
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.signup-btn:hover {
+  background: #5c0000;
+  color: white;
+}
+.nav-link,
+.signup-btn {
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.landing-page {
+  background-image: url('../assets/heroImg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.95;
+}
+.landing-page h1{
+  font-size: 3rem;
+}
+.start-planning-btn:hover {
+  background-color: #fcd676 !important;
+
+}
