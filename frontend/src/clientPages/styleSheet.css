@@ -19,6 +19,8 @@
   color: #555 !important;
   font-weight: 500;
   transition: 0.3s;
+  border-bottom: 2px solid #ffffff !important;
+
 }
 
 .nav-link:hover {
@@ -81,4 +83,561 @@
 .start-planning-btn:hover {
   background-color: #fcd676 !important;
 
+}
+
+/* ─────────────────────────────────────────
+   styles.css  –  Nuptia AI Landing Sections
+   ───────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #faf7f2;
+  --warm-white: #ffffff;
+  --burgundy: #8b1a2b;
+  --burgundy-dark: #6b1220;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --charcoal: #2c2c2c;
+  --text-muted: #888;
+  --text-body: #555;
+  /* --border: #e8ddd2; */
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 32px rgba(139, 26, 43, 0.18);
+  --radius: 12px;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--charcoal);
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ════════════════════════════════════════
+   SECTION 1 – Stats Bar
+   ════════════════════════════════════════ */
+
+.stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #F5ECE7;
+  border: 1px solid #f1e7dd;
+  border-radius: 13px;
+  padding: 28px 42px;
+  margin: 32px 0 48px;
+  box-shadow: var(--shadow);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--burgundy);
+  letter-spacing: 0.02em;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 450;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6f5551;
+}
+
+.stat-divider {
+  width: 0.6px;
+  height: 36px;
+  background-color: #c1a032;
+}
+
+/* ════════════════════════════════════════
+   SECTION 2 – Services Grid
+   ════════════════════════════════════════ */
+
+.services-section {
+  margin-bottom: 64px;
+}
+
+.section-title {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  /* font-size: 2rem; */
+  /* font-weight:lighter !important; */
+  color: var(--burgundy-dark);
+  text-align: center;
+  /* margin-bottom: 32px; */
+  letter-spacing: 0.01em;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.service-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 1 / 0.85;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.service-card:hover .service-img {
+  transform: scale(1.06);
+}
+
+.service-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 12px 14px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, transparent 100%);
+}
+
+.service-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight:500;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.service-sub {
+  /* font-size: 0.78rem; */
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 1px;
+  letter-spacing: 0.03em;
+}
+
+/* ════════════════════════════════════════
+   SECTION 3 – How It Works
+   ════════════════════════════════════════ */
+
+.how-section {
+  text-align: center;
+  padding: 48px 0 64px;
+  background-color: #F5ECE7;
+
+  
+  background-image: url('../assets/Connectors.png');
+  background-repeat: no-repeat;
+  background-position:center center;
+  background-size: 50%;
+}
+
+.how-eyebrow {
+  /* font-size: 0.72rem; */
+  /* font-weight: 600; */
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #610000;
+  margin-bottom: 40px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+  align-items: start;
+}
+
+.how-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+  position: relative;
+}
+
+.how-circle {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: var(--burgundy);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 14px rgba(139, 26, 43, 0.3);
+}
+
+.how-line {
+  position: absolute;
+  top: 26px;
+  left: calc(50% + 26px);
+  right: calc(-50% + 26px);
+  height: 1.5px;
+  background: linear-gradient(to right, var(--border), var(--gold-light), var(--border));
+  z-index: 0;
+}
+
+.how-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.1rem;
+  /* font-weight: 600; */
+  /* color: var(--charcoal); */
+  margin-bottom: 10px;
+  color:#610000;
+}
+
+.how-desc {
+  /* font-size: 0.85rem; */
+  color: var(--text-body);
+  line-height: 1.6;
+  max-width: 200px;
+}
+
+/* ════════════════════════════════════════
+   SECTION 4 – Popular Deals
+   ════════════════════════════════════════ */
+
+.deals-section {
+  margin-bottom: 0;
+  padding-bottom: 64px;
+}
+
+.deals-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.deals-title {
+  font-family: var(--font-display);
+  /* font-size: 1.8rem; */
+  /* font-weight: 600; */
+  color: #610000;
+  line-height: 1;
+}
+
+.deals-sub {
+  /* font-size: 0.8rem; */
+  color: var(--text-muted);
+  margin-top: 4px;
+  letter-spacing: 0.03em;
+}
+
+.deals-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--warm-white);
+  color: var(--charcoal);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.nav-btn:hover {
+  border-color: var(--burgundy);
+  background: var(--burgundy);
+  color: #fff;
+}
+
+.deals-scroll {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.deals-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.deal-card {
+  background: var(--warm-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  scroll-snap-align: start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-width: 0;
+}
+
+.deal-card:hover {
+  /* transform: translateY(-4px); */
+  box-shadow: var(--shadow-hover);
+}
+
+.deal-img-wrap {
+  position: relative;
+}
+
+.deal-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.deal-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--gold);
+  color: black;
+  font-size: 0.77rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  padding: 6px 15px;
+  border-radius: 16px;
+  text-transform: uppercase;
+}
+
+.deal-info {
+  padding: 14px 14px 16px;
+}
+
+.deal-name {
+  font-family: var(--font-display);
+  /* font-size: 1rem; */
+  /* font-weight: 600; */
+  color: #610000;
+  line-height: 1.2;
+}
+
+.deal-category {
+  /* font-size: 0.75rem; */
+  color: var(--text-muted);
+  margin: 4px 0 12px;
+}
+
+.view-deal-btn {
+  width: 100%;
+  padding: 9px 0;
+  background: transparent;
+  border: 1.5px solid #D4AF37;
+  border-radius: 6px;
+  color: #735C00;
+  font-family: var(--font-body);
+  /* font-size: 0.78rem; */
+  /* font-weight: 600; */
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.view-deal-btn:hover {
+  background: #D4AF37;
+  color: #fff;
+}
+
+/* ════════════════════════════════════════
+   SECTION 5 – Testimonials
+   ════════════════════════════════════════ */
+
+.testimonials-section {
+  background: var(--burgundy-dark);
+  border-radius: 16px;
+  padding: 52px 40px;
+  margin: 0 -20px;
+}
+
+.testimonials-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  color: var(--gold);
+  line-height: 0.8;
+  display: block;
+}
+
+.testimonial-text {
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.author-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+}
+
+.author-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.author-date {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 2px;
+}
+
+/* ════════════════════════════════════════
+   Responsive
+   ════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deals-scroll {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-bar {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .how-steps {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .how-line {
+    display: none;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .deals-scroll {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .testimonials-section {
+    padding: 40px 20px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 426px) {
+  
+.landing-page h1{
+  font-size: 2rem;
+}
+.landing-page h5{
+  font-size: 1rem;
+}
+ 
+
+ 
 }
