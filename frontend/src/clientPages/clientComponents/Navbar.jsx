@@ -56,7 +56,7 @@ const Navbar = () => {
                     </ul>
 
                     {/* Right Side */}
-                    <div className="d-flex align-items-center gap-3">
+                    <div className="d-flex justify-content-around align-items-center gap-3">
                         <i className="bi bi-search search-icon"></i>
 
                         <a className="login-link" href="/login">
