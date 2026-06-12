@@ -131,7 +131,7 @@ const LandingPage = () => {
 
       {/* 7th section */}
 
-      <section className="cta-section">
+      <section className="cta-section mt-3 mt-lg-0 mt-md-0">
         <p className="cta-eyebrow">Ready to start your journey?</p>
         <p className="cta-subtext">Join 1000+ couples planning their dream wedding with ease.</p>
         <button className="cta-btn">Get Started Free</button>

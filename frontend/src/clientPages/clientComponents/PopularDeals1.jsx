@@ -47,7 +47,7 @@ const PopularDeals1 = () => {
   return (
     <section className="deals-section mt-5 mb-3">
       <div className="deals-header pt-4 pb-3">
-        <div className='mx-auto text-center'>
+        <div className='mx-auto text-center px-2'>
           <h2 className="deals-title">Popular Deals</h2>
           <p className="deals-sub">Limited time offers from our top partners</p>
         </div>
@@ -57,7 +57,7 @@ const PopularDeals1 = () => {
         </div> */}
       </div>
 
-      <div className="deals-scroll" ref={scrollRef}>
+      <div className="deals-scroll px-3" ref={scrollRef}>
         {deals.map((deal) => (
           <div key={deal.id} className="deal-card mb-4">
             <div className="deal-img-wrap">

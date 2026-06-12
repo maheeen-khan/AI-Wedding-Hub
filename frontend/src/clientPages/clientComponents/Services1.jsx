@@ -63,7 +63,7 @@ const Services1 = () => {
   return (
     <section className="services-section mt-3 text-center">
       <h1 className="section-title">Find Every Wedding Service</h1>
-      <img src={Divider} alt="divider" width={350} className="mb-5" />
+      <img src={Divider} alt="divider" width={300} className="mb-5" />
       <div className="services-grid" style={{textAlign:"left"}}>
         {services.map((service) => (
           <div key={service.id} className="service-card">

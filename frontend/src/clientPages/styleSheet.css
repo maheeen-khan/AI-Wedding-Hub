@@ -1,3 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #faf7f2;
+  --warm-white: #ffffff;
+  --burgundy: #8b1a2b;
+  --burgundy-dark: #6b1220;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --charcoal: #2c2c2c;
+  --text-muted: #888;
+  --text-body: #555;
+  /* --border: #e8ddd2; */
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 32px rgba(139, 26, 43, 0.18);
+  --radius: 12px;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--charcoal);
+  /* line-height: 1.6; */
+  overflow-x: hidden;
+}
+
 .custom-navbar {
   background: #ffffff;
   padding: 18px 0;
@@ -85,51 +120,9 @@
 
 }
 
-/* ─────────────────────────────────────────
-   styles.css  –  Nuptia AI Landing Sections
-   ───────────────────────────────────────── */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 /* ── Reset & Base ── */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-:root {
-  --cream: #faf7f2;
-  --warm-white: #ffffff;
-  --burgundy: #8b1a2b;
-  --burgundy-dark: #6b1220;
-  --gold: #c9a84c;
-  --gold-light: #e8c97a;
-  --charcoal: #2c2c2c;
-  --text-muted: #888;
-  --text-body: #555;
-  /* --border: #e8ddd2; */
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 8px 32px rgba(139, 26, 43, 0.18);
-  --radius: 12px;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
-}
-
-body {
-  font-family: var(--font-body);
-  background: var(--cream);
-  color: var(--charcoal);
-  line-height: 1.6;
-}
-
-.app {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 
 /* ════════════════════════════════════════
    SECTION 1 – Stats Bar
@@ -195,8 +188,12 @@ body {
 }
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, 1fr); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 18px;
 }
 
@@ -494,9 +491,9 @@ body {
 .testimonials-section {
   /* background: var(--burgundy-dark); */
   background-color:#5c0000;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   padding: 52px 40px;
-  margin: 0 -20px;
+  /* margin: 0 -20px; */
   letter-spacing: 0.02em;
 }
 
