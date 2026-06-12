@@ -45,7 +45,7 @@ const PopularDeals1 = () => {
   };
 
   return (
-    <section className="deals-section my-5">
+    <section className="deals-section mt-5 mb-3">
       <div className="deals-header pt-4 pb-3">
         <div className='mx-auto text-center'>
           <h2 className="deals-title">Popular Deals</h2>
@@ -59,7 +59,7 @@ const PopularDeals1 = () => {
 
       <div className="deals-scroll" ref={scrollRef}>
         {deals.map((deal) => (
-          <div key={deal.id} className="deal-card">
+          <div key={deal.id} className="deal-card mb-4">
             <div className="deal-img-wrap">
               <img src={deal.image} alt={deal.name} className="deal-img" />
               <span className="deal-badge">{deal.discount}</span>
