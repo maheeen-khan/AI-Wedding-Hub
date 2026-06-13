@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import coupleDp from '../../../assets/coupleDp.png';
 import "../LandingPage/LandingPage.css";
 
 const Navbar = () => {
@@ -25,32 +26,38 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav mx-auto">
                         <li className="nav-item">
-                            <a className="nav-link" href="/">
-                                Home
+                            <a className="nav-link" href="/venue">
+                                Venues
                             </a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" href="/vendors">
-                                Vendors
+                            <a className="nav-link" href="/catering">
+                                Catering
                             </a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link  " href="/planner">
-                                AI Planner
+                            <a className="nav-link  " href="/photography">
+                                Photography
                             </a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link  " href="/invitations">
-                                Invitations
+                            <a className="nav-link  " href="/decor">
+                                Decor
                             </a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link  " href="/contact">
-                                Contact Us
+                            <a className="nav-link  " href="/makeup">
+                                Makeup
+                            </a>
+                        </li>
+
+                         <li className="nav-item">
+                            <a className="nav-link  " href="/car-rental">
+                                Car Rental
                             </a>
                         </li>
                     </ul>
@@ -59,13 +66,9 @@ const Navbar = () => {
                     <div className="d-flex justify-content-around align-items-center gap-3">
                         <i className="bi bi-search search-icon"></i>
 
-                        <a className="login-link" href="/login">
-                            Login
-                        </a>
-
-                        <a className="signup-btn" href="/sign-up">
-                            Sign Up
-                        </a>
+                        <div className="">
+                            <img src={coupleDp} alt="Couple" className="img-fluid rounded-circle" />
+                        </div>
                     </div>
                 </div>
             </div>

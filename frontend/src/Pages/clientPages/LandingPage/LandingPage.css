@@ -106,7 +106,7 @@ body {
 }
 
 .landing-page {
-  background-image: url('../../assets/heroImg.png');
+  background-image: url('../../../assets/heroImg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -258,7 +258,7 @@ body {
   background-color: #F5ECE7;
 
   
-  background-image: url('../../assets/Connectors.png');
+  background-image: url('../../../assets/Connectors.png');
   background-repeat: no-repeat;
   background-position:center center;
   background-size: 50%;
