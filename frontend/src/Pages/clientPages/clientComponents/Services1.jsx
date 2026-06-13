@@ -8,6 +8,8 @@ import Henna from "../../../assets/Henna.png";
 import card from "../../../assets/card.png";
 import Photography from "../../../assets/Photography.png";
 import Divider from "../../../assets/Divider.png";
+import "../LandingPage/LandingPage.css";
+
 const services = [
   {
     id: 1,

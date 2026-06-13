@@ -3,7 +3,7 @@ import Venues from "../../../assets/Venues.png";
 import Catering from "../../../assets/Catering.png";
 import Photography from "../../../assets/Photography.png";
 import Decor from "../../../assets/Decor.png";
-
+import "../LandingPage/LandingPage.css";
 const deals = [
   {
     id: 1,

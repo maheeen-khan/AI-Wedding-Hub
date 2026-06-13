@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from './clientComponents/Navbar'
-import Services1 from './clientComponents/Services1'
-import PopularDeals1 from './clientComponents/PopularDeals1'
-import "./styleSheet.css"
+import Navbar from '../clientComponents/Navbar'
+import Services1 from '../clientComponents/Services1'
+import PopularDeals1 from '../clientComponents/PopularDeals1'
+import "./LandingPage.css"
 const LandingPage = () => {
 
   const stats = [
