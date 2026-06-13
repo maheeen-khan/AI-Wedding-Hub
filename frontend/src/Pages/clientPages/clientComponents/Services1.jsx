@@ -1,13 +1,13 @@
 import React from "react";
-import Venues from "../../assets/venues.png";
-import Catering from "../../assets/Catering.png";
-import Bridal from "../../assets/Bridal.png";
-import Car from "../../assets/CarRental.png";
-import Decor from "../../assets/Decor.png";
-import Henna from "../../assets/Henna.png";
-import card from "../../assets/card.png";
-import Photography from "../../assets/Photography.png";
-import Divider from "../../assets/Divider.png";
+import Venues from "../../../assets/Venues.png";
+import Catering from "../../../assets/Catering.png";
+import Bridal from "../../../assets/Bridal.png";
+import Car from "../../../assets/CarRental.png";
+import Decor from "../../../assets/Decor.png";
+import Henna from "../../../assets/Henna.png";
+import card from "../../../assets/card.png";
+import Photography from "../../../assets/Photography.png";
+import Divider from "../../../assets/Divider.png";
 const services = [
   {
     id: 1,
