@@ -5,6 +5,7 @@ import LandingPage from './Pages/clientPages/LandingPage/LandingPage'
 import Login_Page from './Pages/Login_SignUp/Login_Page/Login_Page'
 import SignUp_Page from './Pages/Login_SignUp/SignUp_Page/Signup_Page'
 import VenuePage from './Pages/clientPages/VenuePage/VenuePage.jsx';
+import CateringPage from './Pages/clientPages/CateringPage/CateringPage.jsx';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -17,6 +18,8 @@ function App() {
         <Route path="/sign-up" element={<SignUp_Page/>} />
         <Route path='/landingpage' element={<LandingPage/>}/>
         <Route path='/venue' element={<VenuePage/>}/>
+        <Route path='/catering' element={<CateringPage/>}/>
+
       </Routes>
     </BrowserRouter>
     </>
