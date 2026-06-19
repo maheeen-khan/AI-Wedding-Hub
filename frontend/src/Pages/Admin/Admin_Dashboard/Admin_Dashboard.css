@@ -1,0 +1,202 @@
+/* ===========================
+   WeddingWalaAdmin — Layout & Page Styles
+   =========================== */
+
+:root {
+  --maroon:      #7b1c2e;
+  --maroon-dark: #5a1220;
+  --gold:        #d4a017;
+  --gold-light:  #f0c040;
+  --bg:          #f7f4f1;
+  --surface:     #ffffff;
+  --text:        #1a1a1a;
+  --muted:       #999999;
+  --border:      #ece8e4;
+  --green:       #43a047;
+  --red:         #e53935;
+  --radius:      10px;
+  --shadow:      0 2px 12px rgba(0,0,0,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ── Root Layout ── */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-layout__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-width: 0;         /* prevents flex children from overflowing */
+}
+
+/* ── Page Content Area ── */
+.admin-content {
+  padding: 22px 24px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;   /* allow flex children (cards/tables) to shrink below content width */
+  width: 100%;
+}
+
+/* Direct children of admin-content (cards, sections) must also be allowed to shrink */
+.admin-content > * {
+  min-width: 0;
+}
+
+/* ── Stat Grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  min-width: 0;
+}
+
+.stats-grid > * {
+  min-width: 0;
+}
+
+/* ── Mid Row (chart + urgent) ── */
+.mid-row {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 14px;
+  min-width: 0;
+}
+
+.mid-row > * {
+  min-width: 0;
+}
+
+/* ── Generic card ── */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.card__title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+/* ── Urgent Tasks Card ── */
+/* Use .card.urgent-card for higher specificity to override .card background */
+.card.urgent-card {
+  background: var(--maroon-dark) !important;
+  border-color: var(--maroon) !important;
+  color: #fff;
+}
+
+.urgent-card__title { 
+  color: #fff !important; 
+  margin-bottom: 12px;
+}
+
+.urgent-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 7px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  min-height: 0;
+  overflow: visible;
+}
+
+.urgent-item__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+  display: block;
+}
+
+.urgent-item__dot--red    { background: var(--red); }
+.urgent-item__dot--yellow { background: var(--gold); }
+
+.urgent-item__heading {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+  display: block;
+  line-height: 1.4;
+}
+
+.urgent-item__desc {
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  display: block;
+  line-height: 1.4;
+}
+
+.urgent-card__btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--gold);
+  color: var(--maroon-dark);
+  border: none;
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.urgent-card__btn:hover { background: var(--gold-light); }
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Large tablet */
+@media (max-width: 1100px) {
+  .mid-row { grid-template-columns: 1fr; }
+}
+
+/* Tablet — sidebar is now 62px rail */
+@media (max-width: 900px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .admin-content { padding: 18px 18px 28px; gap: 14px; }
+}
+
+/* Narrow — covers 777px range */
+@media (max-width: 820px) {
+  .admin-content { padding: 16px 14px 24px; gap: 12px; }
+}
+
+/* Mobile — sidebar is off-canvas */
+@media (max-width: 767px) {
+  .admin-content { padding: 14px 12px 24px; gap: 12px; }
+}
+
+@media (max-width: 600px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+}
+
+@media (max-width: 400px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .admin-content { padding: 12px 10px 20px; }
+}

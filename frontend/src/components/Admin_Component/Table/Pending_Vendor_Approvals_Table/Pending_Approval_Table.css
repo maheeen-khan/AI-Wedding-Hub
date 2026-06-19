@@ -1,0 +1,245 @@
+/* ===================================
+   PendingApprovalsTable Component
+   =================================== */
+
+.pat-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #ece8e4;
+  width: 100%;
+  min-width: 0;
+}
+
+/* ── Header ── */
+.pat-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.pat-header__title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 3px;
+}
+
+.pat-header__sub {
+  font-size: 11.5px;
+  color: #999999;
+  margin: 0;
+}
+
+.pat-header__view-all {
+  font-size: 12px;
+  color: #7b1c2e;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0;
+  font-family: inherit;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.pat-header__view-all:hover {
+  text-decoration: underline;
+}
+
+/* ── Scroll wrapper ── */
+.pat-scroll {
+  width: 100%;
+  min-width: 0;
+}
+
+/* ── Table ── */
+.pat-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  table-layout: fixed;
+}
+
+.pat-table th {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: #999999;
+  text-align: left;
+  padding: 7px 8px;
+  border-bottom: 1px solid #ece8e4;
+}
+
+.pat-table td {
+  padding: 11px 8px;
+  color: #1a1a1a;
+  border-bottom: 1px solid #ece8e4;
+  vertical-align: middle;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.pat-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pat-table tbody tr:hover td {
+  background: #faf8f6;
+}
+
+/* ── Column widths ── */
+.pat-table th:nth-child(1),
+.pat-table td:nth-child(1) { width: auto; }   /* Vendor Name — flexible */
+.pat-table th:nth-child(2),
+.pat-table td:nth-child(2) { width: 18%; }  /* Category */
+.pat-table th:nth-child(3),
+.pat-table td:nth-child(3) { width: 20%; }  /* Location */
+.pat-table th:nth-child(4),
+.pat-table td:nth-child(4) { width: 18%; }  /* Registered Date */
+.pat-table th:nth-child(5),
+.pat-table td:nth-child(5) { width: 72px; }  /* Actions — FIXED width for buttons */
+
+/* ── Vendor name cell ── */
+.pat-vendor-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pat-vendor-name__icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Action buttons ── */
+.pat-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pat-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s, transform 0.1s;
+  flex-shrink: 0;
+}
+
+.pat-btn:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.pat-btn--approve { background: #e6f9ec; color: #43a047; }
+.pat-btn--reject  { background: #fde8ec; color: #e53935; }
+
+/* ── Empty state ── */
+.pat-empty {
+  text-align: center;
+  color: #999999;
+  padding: 24px;
+  font-size: 12.5px;
+}
+
+/* ── Responsive: shrink everything under 700px ── */
+@media (max-width: 700px) {
+  .pat-card { padding: 14px 12px; }
+
+  .pat-table {
+    font-size: 11px;
+  }
+
+  .pat-table th {
+    font-size: 9px;
+    letter-spacing: 0.3px;
+    padding: 6px 4px;
+  }
+
+  .pat-table td {
+    padding: 8px 4px;
+  }
+
+  /* Actions column stays fixed at 72px so buttons are always visible */
+  .pat-table th:nth-child(5),
+  .pat-table td:nth-child(5) { width: 72px; min-width: 72px; }
+
+  .pat-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .pat-vendor-name__icon {
+    font-size: 12px;
+  }
+
+  .pat-header__title { font-size: 12px; }
+  .pat-header__sub { font-size: 10px; }
+  .pat-header__view-all { font-size: 11px; }
+}
+
+/* ── Under 460px: text wraps, no truncation ── */
+@media (max-width: 460px) {
+  .pat-table {
+    font-size: 10px;
+  }
+
+  .pat-table th,
+  .pat-table td {
+    padding: 6px 3px;
+    white-space: normal;        /* Allow text to wrap */
+    overflow: visible;          /* Don't hide overflow */
+    text-overflow: clip;        /* Remove ellipsis */
+    word-break: break-word;     /* Break long words */
+    hyphens: auto;              /* Hyphenate if needed */
+  }
+
+  .pat-table th {
+    font-size: 8px;
+    letter-spacing: 0.2px;
+  }
+
+  .pat-vendor-name {
+    flex-wrap: wrap;            /* Icon and name stack if needed */
+    gap: 3px;
+  }
+
+  .pat-vendor-name__icon {
+    font-size: 11px;
+  }
+
+  .pat-actions {
+    gap: 3px;
+  }
+
+  .pat-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  /* Actions column still fixed */
+  .pat-table th:nth-child(5),
+  .pat-table td:nth-child(5) { width: 56px; min-width: 56px; }
+
+  .pat-header__title { font-size: 11px; }
+  .pat-header__sub { font-size: 9px; }
+  .pat-header__view-all { font-size: 10px; }
+}
