@@ -1,0 +1,69 @@
+.food-card {
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+}
+.food-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff8f0;
+}
+.food-card-image {
+  /* width: 100%; */
+  height: 260px;
+  object-fit: cover;
+}
+
+.food-card-content {
+  padding: 26px;
+}
+
+.food-card-content h3 {
+  color: #7b1e1e;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.location svg {
+  font-size: 1rem;
+}
+
+
+
+.label {
+  font-size: 0.75rem;
+  /* font-weight: 700; */
+  color: #777;
+  /* letter-spacing: 1px; */
+  margin-bottom: 5px;
+}
+
+.price-section h6 {
+  color: #7b1e1e;
+  /* font-size: 2rem; */
+  font-weight: 500;
+}
+
+.profile-btn {
+  background: transparent;
+  border: 1.5px solid #b38b2d;
+  color: #b38b2d;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profile-btn:hover {
+  background: #b38b2d;
+  color: white;
+}
