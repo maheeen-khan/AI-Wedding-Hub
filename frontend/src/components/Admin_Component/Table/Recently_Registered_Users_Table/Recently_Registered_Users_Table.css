@@ -1,0 +1,239 @@
+/* ===================================
+   RecentUsersTable Component
+   =================================== */
+
+.rut-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #ece8e4;
+  width: 100%;
+  min-width: 0;
+}
+
+/* ── Header ── */
+.rut-header {
+  margin-bottom: 16px;
+}
+
+.rut-header__title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 3px;
+}
+
+.rut-header__sub {
+  font-size: 11.5px;
+  color: #999999;
+  margin: 0;
+}
+
+/* ── Scroll wrapper ── */
+.rut-scroll {
+  width: 100%;
+  min-width: 0;
+}
+
+/* ── Table ── */
+.rut-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  table-layout: fixed;
+}
+
+.rut-table th {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: #999999;
+  text-align: left;
+  padding: 7px 8px;
+  border-bottom: 1px solid #ece8e4;
+}
+
+.rut-table td {
+  padding: 11px 8px;
+  color: #1a1a1a;
+  border-bottom: 1px solid #ece8e4;
+  vertical-align: middle;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.rut-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.rut-table tbody tr:hover td {
+  background: #faf8f6;
+}
+
+/* ── Column widths ── */
+.rut-table th:nth-child(1),
+.rut-table td:nth-child(1) { width: auto; }    /* User — flexible */
+.rut-table th:nth-child(2),
+.rut-table td:nth-child(2) { width: 22%; }   /* Email */
+.rut-table th:nth-child(3),
+.rut-table td:nth-child(3) { width: 18%; }   /* Date */
+.rut-table th:nth-child(4),
+.rut-table td:nth-child(4) { width: 14%; }   /* Role */
+.rut-table th:nth-child(5),
+.rut-table td:nth-child(5) { width: 14%; }   /* Status */
+
+/* ── User cell ── */
+.rut-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rut-user__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #7b1c2e;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Email cell ── */
+.rut-email {
+  color: #555555;
+}
+
+/* ── Date cell ── */
+.rut-date {
+  color: #555555;
+}
+
+/* ── Role badges ── */
+.rut-role {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+.rut-role--couple  { background: #fde8ec; color: #7b1c2e; }
+.rut-role--vendor  { background: #fff4e0; color: #b06000; }
+.rut-role--admin   { background: #e8eafd; color: #3040b0; }
+
+/* ── Status badges ── */
+.rut-status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.rut-status--active   { background: #e6f9ec; color: #43a047; }
+.rut-status--inactive { background: #f5f5f5; color: #777777; }
+.rut-status--pending  { background: #fff4e0; color: #b06000; }
+
+/* ── Empty state ── */
+.rut-empty {
+  text-align: center;
+  color: #999999;
+  padding: 24px;
+  font-size: 12.5px;
+}
+
+/* ── Responsive: under 700px ── */
+@media (max-width: 700px) {
+  .rut-card { padding: 14px 12px; }
+
+  .rut-table {
+    font-size: 11px;
+  }
+
+  .rut-table th {
+    font-size: 9px;
+    letter-spacing: 0.3px;
+    padding: 6px 4px;
+  }
+
+  .rut-table td {
+    padding: 8px 4px;
+  }
+
+  .rut-user__avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 9px;
+  }
+
+  .rut-role {
+    padding: 2px 6px;
+    font-size: 9px;
+  }
+
+  .rut-status {
+    padding: 2px 6px;
+    font-size: 9.5px;
+  }
+
+  .rut-header__title { font-size: 12px; }
+  .rut-header__sub { font-size: 10px; }
+}
+
+/* ── Under 460px: text wraps, no truncation ── */
+@media (max-width: 460px) {
+  .rut-table {
+    font-size: 10px;
+  }
+
+  .rut-table th,
+  .rut-table td {
+    padding: 6px 3px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .rut-table th {
+    font-size: 8px;
+    letter-spacing: 0.2px;
+  }
+
+  .rut-user {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .rut-user__avatar {
+    width: 22px;
+    height: 22px;
+    font-size: 8px;
+  }
+
+  .rut-role {
+    padding: 2px 4px;
+    font-size: 8px;
+    border-radius: 3px;
+  }
+
+  .rut-status {
+    padding: 2px 4px;
+    font-size: 8.5px;
+    border-radius: 3px;
+  }
+
+  .rut-header__title { font-size: 11px; }
+  .rut-header__sub { font-size: 9px; }
+}

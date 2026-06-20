@@ -1,0 +1,75 @@
+/* ===========================
+   StatCard Component
+   =========================== */
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px 20px 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #ece8e4;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Gold left-border accent for urgent cards */
+.stat-card--urgent {
+  border-left: 4px solid #d4a017;
+}
+
+/* Icon — top-right, decorative */
+.stat-card__icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 22px;
+  opacity: 0.35;
+  line-height: 1;
+}
+
+/* ALL-CAPS label */
+.stat-card__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  color: #999999;
+  text-transform: uppercase;
+  padding-right: 32px; /* clear of icon */
+  margin: 0;
+}
+
+/* Big number */
+.stat-card__value {
+  font-size: 30px;
+  font-weight: 800;
+  color: #5a1220;
+  line-height: 1.1;
+  margin: 2px 0 0;
+  white-space: nowrap;
+}
+
+/* Third-line sub text */
+.stat-card__sub {
+  font-size: 11px;
+  margin: 0;
+  margin-top: 2px;
+}
+
+.stat-card__sub--positive { color: #43a047; }
+.stat-card__sub--alert    { color: #d4a017; font-weight: 600; }
+.stat-card__sub--neutral  { color: #999999; }
+
+/* ── Responsive ── */
+@media (max-width: 800px) {
+  .stat-card { padding: 14px 16px 12px; }
+  .stat-card__value { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+  .stat-card { padding: 12px 14px 10px; }
+  .stat-card__value { font-size: 20px; }
+}
