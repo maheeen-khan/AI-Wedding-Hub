@@ -1,12 +1,10 @@
 import React,{useState} from 'react'
-import Navbar2 from '../clientComponents/Navbar2.jsx';
 import CateringCard from '../clientComponents/CateringCard.jsx';
 import catering1 from '../../../assets/catering1.png';
 import catering2 from '../../../assets/catering2.png';
 import catering3 from '../../../assets/catering3.png';
 import venueDivider from '../../../assets/venue-divider.png';
 import banquet4 from '../../../assets/banquet4.png';
-import Footer from '../clientComponents/Footer.jsx';
 // import './VenuePage.css';
 
 const recommendedCaterers = [
@@ -149,25 +147,17 @@ const CateringPage = () => {
 
   return (
     <>
-      <Navbar2 />
 
        <div className="venues-page">
  
-      {/* ── Hero Banner ── */}
-      <div className="venues-hero">
-        <h1 className="hero-title">Catering Services in Karachi</h1>
-        <p className="hero-sub mt-4 px-5">Showing caterers matching your budget and guest count. From traditional Biryanis to gourmet fusion cuisines.</p>
-      </div>
+      
  
       <div className="container-xl py-4">
  
         {/* ── Recommended Section ── */}
-        <div className="my-5">
-          <div className="d-flex align-items-center gap-2 mb-1">
-            <span className="recommended-star">&#9733;</span>
-            <h4 className="section-heading mb-0">Recommended for You</h4>
-          </div>
-          <p className="section-sub mb-4 ps-2">Based on your wedding profile</p>
+        <div className="my-2">
+          
+         
           <div className="row g-3">
             {recommendedCaterers.map((caterer) => (
               <div className="col-12 col-md-6 col-lg-4" key={caterer.id}>
@@ -223,7 +213,6 @@ const CateringPage = () => {
  
       </div>
     </div>
-    <Footer />
     </>
   )
 }

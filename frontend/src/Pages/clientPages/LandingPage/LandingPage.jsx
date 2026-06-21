@@ -96,7 +96,7 @@ const LandingPage = () => {
           {steps.map((step) => (
             <div key={step.num} className="how-step">
               <div className="how-circle">{step.num}</div>
-              {step.num < 3 && <div className="how-line" />}
+              {/* {step.num < 3 && <div className="how-line" />} */}
               <h3 className="how-title">{step.title}</h3>
               <p className="how-desc">{step.desc}</p>
             </div>
