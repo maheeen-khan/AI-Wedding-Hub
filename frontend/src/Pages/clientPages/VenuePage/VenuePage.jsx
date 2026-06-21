@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import Navbar2 from '../clientComponents/Navbar2.jsx';
 import VenueCard from '../clientComponents/VenueCard.jsx';
 import banquet1 from '../../../assets/banquet1.png';
 import banquet2 from '../../../assets/banquet2.png';
@@ -179,25 +178,15 @@ const VenuePage = () => {
 
   return (
     <>
-      <Navbar2 />
 
        <div className="venues-page">
  
-      {/* ── Hero Banner ── */}
-      <div className="venues-hero">
-        <h1 className="hero-title">Wedding Venues in Karachi</h1>
-        <p className="hero-sub">Showing venues matching your budget and guest count.</p>
-      </div>
  
-      <div className="container-xl py-4">
+      <div className="container-xl pt-0 pb-3">
  
         {/* ── Recommended Section ── */}
         <div className="my-5">
-          <div className="d-flex align-items-center gap-2 mb-1">
-            <span className="recommended-star">&#9733;</span>
-            <h4 className="section-heading mb-0">Recommended for You</h4>
-          </div>
-          <p className="section-sub mb-4 ps-2">Based on your wedding profile</p>
+          
           <div className="row g-3">
             {recommendedVenues.map((venue) => (
               <div className="col-12 col-md-6 col-lg-4" key={venue.id}>
@@ -209,7 +198,7 @@ const VenuePage = () => {
  
         {/* ── Divider ── */}
         <div className="d-flex align-items-center justify-content-center my-5">
-          <img src={venueDivider} alt="Divider"/>
+          <img src={venueDivider} alt="Divider" className='img-fluid venue-divider' width={300}/>
         </div>
  
         {/* ── All Venues Section ── */}

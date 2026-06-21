@@ -24,12 +24,17 @@ const CateringCard = ({ caterer, recommended = false }) => {
         
           </div>
           <p className="venue-location text-muted"><i class="bi bi-geo-alt"></i> {caterer.location}</p>
-          {/* <div className="meta-row">
-            <span className="meta-label">Price</span>
-            <span className="meta-value">{caterer.starting}</span>
-          </div> */}
+
+          {caterer.events && (
+          <div className="event-tags pb-4">
+            {caterer.events.map((event, index) => (
+                  <span key={index} className={`event-tag ${index %2 == 0 ? "event-tag-maroon" : "event-tag-grey"}`}>{event}</span>
+            ))}
+
+          </div>
+          )}
           {/* <div className="meta-row"> */}
-            <div className="food-card-footer d-flex  justify-content-between gap-5 align-items-center px-2">
+            <div className="food-card-footer d-flex  justify-content-between gap-2 align-items-center px-2">
           <div className="price-section">
             <p className="label">Starting from</p>
             <h6>{caterer.starting}</h6>

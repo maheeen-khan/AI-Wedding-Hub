@@ -67,3 +67,31 @@
   background: #b38b2d;
   color: white;
 }
+
+.event-tags{
+  display: flex;
+  justify-content:flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.event-tag{
+  font-weight:600;
+  font-size: 13px;
+  padding: 5px 13px;
+  border-radius: 25px;
+}
+.event-tag-maroon{
+   background-color: #FEE2DD;
+  color: #610000;
+}
+
+.event-tag-grey{
+   background-color: #E8E8E8;
+  color: #5A403C;
+}
+
+@media screen and (min-width: 426px){
+  .venue-divider{
+    width: 55%;
+  }
+}
