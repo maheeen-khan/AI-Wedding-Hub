@@ -183,7 +183,7 @@ const MakeupPage = () => {
     
                         {/* ── All Venues Section ── */}
                         <div>
-                            <h5 className="section-heading mb-4">All Decorators in Karachi</h5>
+                            <h5 className="section-heading mb-4">All Makeup Artists in Karachi</h5>
                             <div className="row g-3">
                                 {paginatedMakeupArtist.map((artist) => (
                                     <div className="col-12 col-sm-6 col-lg-4" key={artist.id}>

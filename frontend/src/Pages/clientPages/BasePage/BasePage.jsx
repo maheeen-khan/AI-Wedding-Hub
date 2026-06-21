@@ -28,7 +28,7 @@ const BasePage = ({mainheading,subhead,children}) => {
                             <span className="recommended-star">&#9733;</span>
                             <h4 className="section-heading mb-0">Recommended for You</h4>
                         </div>
-                        <p className="section-sub mb-1 ps-2">Based on your wedding profile</p>
+                        <p className="section-sub mb-1 ps-2">Based on your wedding profile and preferences</p>
                         <div className="row g-3">
                                            {children}
 

@@ -51,26 +51,22 @@ body {
 }
 
 .nav-link {
-  color: #555 !important;
-  font-weight: 500;
-  transition: 0.3s;
-  border-bottom: 2px solid #ffffff !important;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+  transition: all 0.2s ease;
+}
 
+.active-link {
+  color: #7b0000 !important;
+  border-bottom: 2px solid #7b0000 !important;
+  transition: all 0.2s ease-out;
 }
 
 .nav-link:hover {
   color: #7b0000 !important;
   border-bottom: 2px solid #7b0000 !important;
   transition: all 0.2s ease-out;
-}
-.nav-link:active {
-  color: #7b0000 !important;
-  border-bottom: 2px solid #7b0000 !important;
-}
-
-.active-link {
-  color: #7b0000 !important;
-  border-bottom: 2px solid #7b0000;
 }
 
 .search-icon {
