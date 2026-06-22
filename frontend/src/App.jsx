@@ -13,6 +13,7 @@ import PhotographChild from './Pages/clientPages/PhotographyPage/PhotographyPage
 import DecorPage from './Pages/clientPages/DecorPage/DecorPage.jsx';
 import MakeupPage from './Pages/clientPages/MakeupPage/MakeupPage.jsx';
 import CarRentalPage from './Pages/clientPages/CarRentalPage/CarRentalPage.jsx';
+import SetupProfilePage from './Pages/clientPages/SetupProfilePage/SetupProfilePage.jsx';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         {/* <Route path="/" element={<Navigate to="/login" replace />} /> */}
         <Route path="/login" element={<Login_Page />} />
         <Route path="/sign-up" element={<SignUp_Page/>} />
+        <Route path='/setup-profile' element={<SetupProfilePage/>} />
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/admin' element={<Admin_Dashboard/>}/>
 

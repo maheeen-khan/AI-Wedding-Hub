@@ -237,6 +237,11 @@ const DecorPage = () => {
                         </button>
                     </div>
                              </div>
+
+                                {/* Floating action button */}
+      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI'>
+        <i className="bi bi-stars"></i>
+      </button>
                             </div>
     </>
   )
