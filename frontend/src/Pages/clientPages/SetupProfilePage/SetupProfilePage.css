@@ -18,12 +18,17 @@ body{
   background-color: #F9F9F9;
   border-bottom: 1px solid #ecdfd2;
   padding: 18px 0;
+  position:fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .ww-header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 .ww-logo {
@@ -73,6 +78,7 @@ body{
 /* ---------- Main / Card ---------- */
 .ww-main {
   padding: 48px 0;
+  padding-top: 130px; /* Extra padding to ensure content isn't hidden behind the header */
 }
 
 .ww-card {

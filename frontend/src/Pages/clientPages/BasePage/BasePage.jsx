@@ -12,7 +12,7 @@ const BasePage = ({mainheading,subhead,children}) => {
         <>
             <Navbar />
 
-            <div className="venues-page">
+            <div className="venues-page" style={{marginTop:'60px'}}>
 
                 {/* ── Hero Banner ── */}
                 <div className="venues-hero">
