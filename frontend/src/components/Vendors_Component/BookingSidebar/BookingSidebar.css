@@ -1,0 +1,296 @@
+/* BookingSidebar.css */
+.vp-booking {
+  border: 1px solid var(--vp-stone-200);
+  border-radius: var(--vp-radius-lg);
+  background: var(--vp-white);
+  padding: 22px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Highlighted price header block */
+.vp-booking__price-block {
+  background: linear-gradient(135deg, var(--vp-maroon-900), #aa2238);
+  border-radius: var(--vp-radius-md, 12px);
+  padding: 16px 18px;
+  margin-bottom: 20px;
+}
+
+.vp-booking__price-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #f4b8c4;
+  margin: 0;
+}
+
+.vp-booking__price-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--vp-white);
+  margin: 4px 0 0;
+}
+
+.vp-booking__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vp-booking__field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--vp-stone-500);
+  margin-bottom: 6px;
+}
+
+.vp-booking__field select,
+.vp-booking__field input[type="text"],
+.vp-booking__field input[type="date"],
+.vp-booking__field input[type="number"],
+.vp-booking__field textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--vp-stone-200);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--vp-stone-700);
+  background: var(--vp-stone-50, #fafafa);
+  outline: none;
+  font-family: var(--vp-font);
+  box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.vp-booking__field select:hover,
+.vp-booking__field input:hover,
+.vp-booking__field textarea:hover {
+  border-color: var(--vp-stone-300, #d4d4d4);
+}
+
+.vp-booking__field select:focus,
+.vp-booking__field input:focus,
+.vp-booking__field textarea:focus {
+  border-color: var(--vp-rose-600);
+  background: var(--vp-white);
+  box-shadow: 0 0 0 4px var(--vp-rose-50);
+}
+
+.vp-booking__field textarea {
+  resize: vertical;
+}
+
+/* Custom select arrow */
+.vp-booking__select-wrap {
+  position: relative;
+}
+
+.vp-booking__select-wrap select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 34px;
+  cursor: pointer;
+}
+
+.vp-booking__select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--vp-stone-400);
+  border-bottom: 2px solid var(--vp-stone-400);
+  transform: translateY(-65%) rotate(45deg);
+  pointer-events: none;
+}
+
+.vp-booking__input-icon-wrap {
+  position: relative;
+}
+
+.vp-booking__input-icon-wrap input {
+  padding-left: 38px !important;
+}
+
+.vp-booking__input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--vp-stone-400);
+  pointer-events: none;
+}
+
+.vp-booking__checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vp-booking__checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13.5px;
+  color: var(--vp-stone-700);
+  font-weight: 400;
+  cursor: pointer;
+  padding: 9px 12px;
+  border: 1.5px solid var(--vp-stone-200);
+  border-radius: 10px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.vp-booking__checkbox-item:hover {
+  border-color: var(--vp-rose-300, #f4b8c4);
+  background: var(--vp-rose-50);
+}
+
+.vp-booking__checkbox-item input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--vp-rose-700);
+  cursor: pointer;
+}
+
+.vp-booking__button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.vp-booking__tab-btn {
+  flex: 1;
+  padding: 10px 8px;
+  border: 1.5px solid var(--vp-stone-200);
+  border-radius: 10px;
+  background: var(--vp-white);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--vp-stone-600);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.vp-booking__tab-btn:hover {
+  border-color: var(--vp-rose-300, #f4b8c4);
+}
+
+.vp-booking__tab-btn--active {
+  background: var(--vp-rose-700);
+  border-color: var(--vp-rose-700);
+  color: var(--vp-white);
+  box-shadow: 0 4px 12px rgba(190, 24, 60, 0.25);
+}
+
+.vp-booking__chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vp-booking__chip-btn {
+  padding: 7px 14px;
+  border: 1.5px solid var(--vp-stone-200);
+  border-radius: var(--vp-radius-full);
+  background: var(--vp-white);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--vp-stone-600);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.vp-booking__chip-btn:hover {
+  border-color: var(--vp-rose-300, #f4b8c4);
+}
+
+.vp-booking__chip-btn--active {
+  background: var(--vp-rose-50);
+  border-color: var(--vp-rose-600);
+  color: var(--vp-rose-700);
+}
+
+.vp-booking__primary-btn {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--vp-rose-700), var(--vp-maroon-800, #7a1224));
+  color: var(--vp-white);
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  margin-top: 6px;
+  box-shadow: 0 6px 16px rgba(190, 24, 60, 0.3);
+}
+
+.vp-booking__primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(228, 108, 134, 0.38);
+}
+
+.vp-booking__primary-btn:active {
+  transform: translateY(0);
+}
+
+.vp-booking__whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: var(--vp-emerald-600);
+  color: var(--vp-white);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+  box-sizing: border-box;
+}
+
+.vp-booking__whatsapp-btn:hover {
+  background: var(--vp-emerald-700);
+  transform: translateY(-1px);
+}
+
+.vp-booking__secondary-outline-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e29b01;
+  border-radius: 10px;
+  background: var(--vp-white);
+  color: var(--vp-stone-700);
+  font-size: 14px;
+  font-weight: 600;
+  color:#7a1224;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.vp-booking__secondary-outline-btn:hover {
+  background: var(--vp-stone-100);
+  border-color: var(--vp-stone-300, #d4d4d4);
+}
+
+.vp-booking__note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--vp-stone-400);
+  margin: 6px 0 0;
+}

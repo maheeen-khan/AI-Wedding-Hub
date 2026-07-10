@@ -1,0 +1,29 @@
+.vp-notice {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--vp-radius-md);
+  padding: 14px 16px;
+}
+
+.vp-notice__icon {
+  color: #d97706;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.vp-notice__title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #92400e;
+  margin: 0 0 2px;
+}
+
+.vp-notice__text {
+  font-size: 13px;
+  color: #a16207;
+  line-height: 1.5;
+  margin: 0;
+}

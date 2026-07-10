@@ -241,6 +241,8 @@
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   margin-top: auto;
+  text-decoration: none;
+  text-align: center;
 }
  
 .view-profile-btn:hover {
