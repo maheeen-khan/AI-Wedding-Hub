@@ -15,12 +15,14 @@
 
 /* Urgent card overrides */
 .card.urgent-card {
-  background: var(--maroon-dark) !important;
+  padding: 10px 10px;
+  background:#640707 !important;
   border-color: var(--maroon) !important;
-  color: #fff;
+  border-radius: 15px;
+  color: #eaf5ea;
 }
 
-.urgent-card__title { color: #fff !important; }
+.urgent-card__title { color: #f6f2f2 !important; }
 
 .urgent-item {
   display: flex;

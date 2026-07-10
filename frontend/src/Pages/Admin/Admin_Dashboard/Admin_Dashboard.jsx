@@ -7,7 +7,7 @@ import {
 import Cards from "../../../components/Admin_Component/Cards/Cards";
 import PendingVendorApprovalsTable from "../../../components/Admin_Component/Table/Pending_Vendor_Approvals_Table/Pending_Approvals_Table";
 import RecentlyRegisteredUsersTable from "../../../components/Admin_Component/Table/Recently_Registered_Users_Table/Recently_Registered_Users_Table";
-import Directory_Table from "../../../components/Admin_Component/Table/Directory_Table/Directory_Table";
+
 import "./Admin_Dashboard.css";
 
 /* ── Static sample data ── */
@@ -93,7 +93,7 @@ export default function Admin_Dashboard() {
         onReject={(id) => console.log("Reject vendor", id)}
       />
       <RecentlyRegisteredUsersTable users={RECENT_USERS} />
-      <Directory_Table />
+      
     </>
   );
 }
