@@ -1,0 +1,118 @@
+.vp-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--vp-rose-100);
+}
+
+.vp-navbar__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 64px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.vp-navbar__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vp-navbar__divider {
+  width: 1px;
+  height: 20px;
+  background: var(--vp-stone-200);
+}
+
+.vp-navbar__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--vp-radius-full);
+  border: none;
+  background: transparent;
+  color: var(--vp-stone-500);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.vp-navbar__icon-btn:hover {
+  background: var(--vp-rose-50);
+  color: var(--vp-rose-700);
+}
+
+.vp-navbar__breadcrumb {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vp-stone-600);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.vp-navbar__breadcrumb:hover {
+  color: var(--vp-rose-700);
+}
+
+.vp-navbar__brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--vp-stone-900);
+  cursor: pointer;
+}
+
+.vp-navbar__brand span {
+  color: var(--vp-rose-700);
+}
+
+.vp-navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vp-navbar__avatar {
+  margin-left: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--vp-radius-full);
+  border: none;
+  background: linear-gradient(135deg, var(--vp-rose-600), var(--vp-maroon-800));
+  color: var(--vp-white);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--vp-shadow-sm);
+  transition: transform 0.15s;
+}
+
+.vp-navbar__avatar:hover {
+  transform: scale(1.06);
+}
+
+@media (max-width: 640px) {
+  .vp-navbar__inner {
+    padding: 0 16px;
+  }
+  .vp-navbar__brand {
+    font-size: 16px;
+  }
+}

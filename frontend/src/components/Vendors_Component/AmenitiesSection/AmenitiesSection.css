@@ -1,0 +1,28 @@
+.vp-amenities__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--vp-stone-900);
+  margin: 0 0 12px;
+}
+
+.vp-amenities__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vp-amenities__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--vp-radius-full);
+  border: 1px solid var(--vp-stone-200);
+  background: var(--vp-white);
+  font-size: 13px;
+  color: var(--vp-stone-700);
+}
+
+.vp-amenities__chip svg {
+  color: var(--vp-rose-700);
+}

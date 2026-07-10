@@ -1,0 +1,13 @@
+.vp-about__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--vp-stone-900);
+  margin: 0 0 8px;
+}
+
+.vp-about__text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--vp-stone-600);
+  margin: 0;
+}

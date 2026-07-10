@@ -198,7 +198,7 @@ const CarRentalPage = () => {
                             <div className="row g-3">
                                 {recommendedCars.map((car) => (
                                     <div className="col-12 col-md-6 col-lg-4" key={car.id}>
-                                        <CateringCard caterer={car} recommended={true} eventlabel={true} />
+                                        <CateringCard caterer={car} recommended={true} eventlabel={true} type='car-rental' />
                                     </div>
                                 ))}
                             </div>
@@ -215,7 +215,7 @@ const CarRentalPage = () => {
                             <div className="row g-3">
                                 {paginatedCar.map((car) => (
                                     <div className="col-12 col-sm-6 col-lg-4" key={car.id}>
-                                        <CateringCard caterer={car} recommended={false} events={true} />
+                                        <CateringCard caterer={car} recommended={false} events={true} type='car-rental' />
                                     </div>
                                 ))}
                             </div>

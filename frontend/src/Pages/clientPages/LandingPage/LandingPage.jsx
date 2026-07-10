@@ -58,6 +58,7 @@ const LandingPage = () => {
   return (
     <>
       <Navbar />
+      
 
       <div className='landing-page d-flex flex-column align-items-center justify-content-center text-center text-white pt-5' style={{ height: '100vh' }}>
 

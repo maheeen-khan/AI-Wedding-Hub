@@ -183,7 +183,7 @@ const PhotographyPage = () => {
                             <div className="row g-3">
                                 {recommendedPhotographers.map((photographer) => (
                                     <div className="col-12 col-md-6 col-lg-4" key={photographer.id}>
-                                        <CateringCard caterer={photographer} recommended={true} eventlabel={true} />
+                                        <CateringCard caterer={photographer} recommended={true} eventlabel={true} type="photography" />
                                     </div>
                                 ))}
                             </div>

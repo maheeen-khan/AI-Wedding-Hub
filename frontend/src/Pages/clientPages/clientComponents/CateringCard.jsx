@@ -1,6 +1,8 @@
 import React from "react";
 import '../CateringPage/CateringPage.css';
-const CateringCard = ({ caterer, recommended = false }) => {
+import { Link } from "react-router-dom";
+
+const CateringCard = ({caterer, recommended = false, type = "catering" }) => {
   return (
     <div className="food-card">
       <div className="venue-img-wrap">
@@ -10,44 +12,44 @@ const CateringCard = ({ caterer, recommended = false }) => {
         )}
       </div>
       <div className="venue-body">
-        
-    
+
+
         <div className="venue-meta">
           <div className="meta-row">
             <h4 className="venue-name">{caterer.name}</h4>
-                
-             <div className="venue-rating pt-3">
-          <span className="star">&#9733;</span>
-          <span className="rating-val fw-bold">{caterer.rating}</span>
-          
-        </div>
-        
+
+            <div className="venue-rating pt-3">
+              <span className="star">&#9733;</span>
+              <span className="rating-val fw-bold">{caterer.rating}</span>
+
+            </div>
+
           </div>
           <p className="venue-location text-muted"><i class="bi bi-geo-alt"></i> {caterer.location}</p>
 
           {caterer.events && (
-          <div className="event-tags pb-4">
-            {caterer.events.map((event, index) => (
-                  <span key={index} className={`event-tag ${index %2 == 0 ? "event-tag-maroon" : "event-tag-grey"}`}>{event}</span>
-            ))}
+            <div className="event-tags pb-4">
+              {caterer.events.map((event, index) => (
+                <span key={index} className={`event-tag ${index % 2 == 0 ? "event-tag-maroon" : "event-tag-grey"}`}>{event}</span>
+              ))}
 
-          </div>
+            </div>
           )}
           {/* <div className="meta-row"> */}
-            <div className="food-card-footer d-flex  justify-content-between gap-2 align-items-center px-2">
-          <div className="price-section">
-            <p className="label">Starting from</p>
-            <h6>{caterer.starting}</h6>
-          </div>
+          <div className="food-card-footer d-flex  justify-content-between gap-2 align-items-center px-2">
+            <div className="price-section">
+              <p className="label">Starting from</p>
+              <h6>{caterer.starting}</h6>
+            </div>
 
-          <button className="profile-btn">
-            View Profile
-          </button>
-        </div>
+
+            <Link to={`/Vendor_Profile_Page/${type}/${caterer.id}`} className="profile-btn"> View Profile</Link>
+
           </div>
+        </div>
         {/* </div> */}
-     
-        
+
+
       </div>
     </div>
   );
