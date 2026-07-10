@@ -1,5 +1,5 @@
 import React from "react";
-
+import '../VenuePage/VenuePage.css';
 const VenueCard = ({ venue, recommended = false }) => {
   return (
     <div className="venue-card">

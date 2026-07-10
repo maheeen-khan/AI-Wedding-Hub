@@ -299,6 +299,31 @@
   color: #ffffff;
 }
  
+
+/* ---------- Floating action button ---------- */
+.ww-fab {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #7a0c2e;
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(122, 12, 46, 0.35);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.ww-fab:hover {
+  transform: scale(1.06);
+}
+
 /* ── Responsive ── */
 @media (max-width: 576px) {
   .hero-title {
