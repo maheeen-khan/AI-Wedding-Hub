@@ -14,14 +14,12 @@ import DecorPage from './Pages/clientPages/DecorPage/DecorPage.jsx';
 import MakeupPage from './Pages/clientPages/MakeupPage/MakeupPage.jsx';
 import CarRentalPage from './Pages/clientPages/CarRentalPage/CarRentalPage.jsx';
 import SetupProfilePage from './Pages/clientPages/SetupProfilePage/SetupProfilePage.jsx';
-<<<<<<< HEAD
+
 import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/BookingConfirmation.jsx';
-=======
+
+import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/BookingConfirmation.jsx';
 import VendorProfileRouter from './Pages/Vendor_Profile_Page/VendorProfileRouter.jsx';
 import Services1 from './Pages/clientPages/clientComponents/Services1.jsx';
-
-
->>>>>>> eced9b35716c33c2c1fd2e2301018744a8a39231
 
 function App() {
   const [count, setCount] = useState(0)
@@ -51,22 +49,17 @@ function App() {
 
           <Route path='/makeup' element={<BasePage mainheading={'Bridal Makeup Artists in Karachi'} subhead={"Discover elite beauty specialists curated to match your heritage style, budget, and specific wedding festivities."}><MakeupPage /></BasePage>} />
 
-<<<<<<< HEAD
+          <Route path='/car-rental' element={<BasePage mainheading={'Wedding Car Rental in Karachi'} subhead={"Showing car services matching your budget and events. From vintage classics to modern luxury, arrive in style."}><CarRentalPage /></BasePage>} />
+
         <Route path='/base' element={<BasePage/>}/>
 
         <Route path='/booking-confirmation' element={<BookingConfirmation/>}/>
 
       </Routes>
     </BrowserRouter>
-=======
-          <Route path='/car-rental' element={<BasePage mainheading={'Wedding Car Rental in Karachi'} subhead={"Showing car services matching your budget and events. From vintage classics to modern luxury, arrive in style."}><CarRentalPage /></BasePage>} />
 
-          <Route path='/base' element={<BasePage />} />
-        </Routes>
-      </BrowserRouter>
->>>>>>> eced9b35716c33c2c1fd2e2301018744a8a39231
     </>
   )
 }
 
-export default App
+export default App;
