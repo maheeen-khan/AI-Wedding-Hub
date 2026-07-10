@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../LandingPage/LandingPage.css";
-
 const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg custom-navbar">
