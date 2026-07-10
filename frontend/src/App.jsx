@@ -14,7 +14,7 @@ import DecorPage from './Pages/clientPages/DecorPage/DecorPage.jsx';
 import MakeupPage from './Pages/clientPages/MakeupPage/MakeupPage.jsx';
 import CarRentalPage from './Pages/clientPages/CarRentalPage/CarRentalPage.jsx';
 import SetupProfilePage from './Pages/clientPages/SetupProfilePage/SetupProfilePage.jsx';
-
+import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/BookingConfirmation.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -43,6 +43,9 @@ function App() {
         <Route path='/car-rental' element={<BasePage mainheading={'Wedding Car Rental in Karachi'} subhead={"Showing car services matching your budget and events. From vintage classics to modern luxury, arrive in style."}><CarRentalPage/></BasePage>}/>
 
         <Route path='/base' element={<BasePage/>}/>
+
+        <Route path='/booking-confirmation' element={<BookingConfirmation/>}/>
+
       </Routes>
     </BrowserRouter>
     </>
