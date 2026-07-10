@@ -1,0 +1,168 @@
+.booking-success-page {
+    min-height: 100vh;
+    background: #fbf7f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.success-card {
+    width: 650px;
+    background: white;
+    border: 1px solid #d7b24a;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+.success-icon{
+    width:70px;
+    height:70px;
+    border:1px solid #d7b24a;
+    margin:auto;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#d7b24a;
+    font-size:22px;
+}
+
+.success-card h2{
+    color:#781414;
+    margin:18px 0 10px;
+}
+
+.subtitle{
+    color:#666;
+    font-size:14px;
+}
+
+.status-pill{
+    display:inline-block;
+    margin:25px 0;
+    border:1px solid #d7b24a;
+    color:#c49b1d;
+    padding:8px 22px;
+    border-radius:30px;
+    font-size:14px;
+}
+
+.summary-card{
+    background:#fbf7f2;
+    padding:25px;
+    text-align:left;
+    margin-top:10px;
+}
+
+.summary-card h4{
+    color:#781414;
+    margin-bottom:20px;
+    border-bottom:1px solid #ddd;
+    padding-bottom:10px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:16px;
+    gap:20px;
+}
+
+.summary-row span{
+    color:#777;
+}
+
+.summary-row strong{
+    color:#781414;
+    text-align:right;
+}
+.summary-heading {
+    color: #781414;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0c267;
+    padding-bottom: 18px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.note{
+    border-top:1px solid #f1d990;
+    padding-top:15px;
+}
+
+.steps{
+    margin-top:40px;
+}
+
+.step-container{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+}
+
+.step{
+    width:30%;
+}
+
+.circle{
+    width:32px;
+    height:32px;
+    background:#781414;
+    color:white;
+    border-radius:35%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:13px;
+    margin-top: 15px;
+    /* font-weight:bold; */
+}
+
+.step p{
+    margin-top:10px;
+    font-size:13px;
+    color:#666;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:40px;
+}
+
+.btn-outline{
+    text-decoration:none;
+    border:2px solid #781414;
+    color:#781414;
+    padding:14px 35px;
+    transition:.3s;
+}
+
+.btn-outline:hover{
+    background:#781414;
+    color:white;
+}
+
+.btn-filled{
+    text-decoration:none;
+    background:#d7b24a;
+    color:white;
+    padding:14px 35px;
+    transition:.3s;
+}
+
+.btn-filled:hover{
+    opacity:.9;
+}
+
+.assistant-text{
+    margin-top:25px;
+    color:#999;
+    font-size:13px;
+}
