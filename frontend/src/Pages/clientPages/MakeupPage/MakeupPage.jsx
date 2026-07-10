@@ -170,7 +170,8 @@ const MakeupPage = () => {
                             <div className="row g-3">
                                 {recommendedMakeupArtists.map((decorator) => (
                                     <div className="col-12 col-md-6 col-lg-4" key={decorator.id}>
-                                        <CateringCard caterer={decorator} recommended={true} eventlabel={false} />
+                                        <CateringCard caterer={decorator} recommended={true} eventlabel={false} type="makeup" />
+
                                     </div>
                                 ))}
                             </div>
@@ -187,7 +188,7 @@ const MakeupPage = () => {
                             <div className="row g-3">
                                 {paginatedMakeupArtist.map((artist) => (
                                     <div className="col-12 col-sm-6 col-lg-4" key={artist.id}>
-                                        <CateringCard caterer={artist} recommended={false} events={false} />
+                                        <CateringCard caterer={artist} recommended={false} events={false} type='makeup' />
                                     </div>
                                 ))}
                             </div>

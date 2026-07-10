@@ -4,6 +4,7 @@ import catering1 from '../../../assets/catering1.png';
 import catering2 from '../../../assets/catering2.png';
 import catering3 from '../../../assets/catering3.png';
 import venueDivider from '../../../assets/venue-divider.png';
+
 import banquet4 from '../../../assets/banquet4.png';
 // import './VenuePage.css';
 

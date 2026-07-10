@@ -1,0 +1,55 @@
+/* ============================================================
+   VendorProfile shared design tokens
+   Import this ONCE at the top of your global index.css, or
+   import it in every page (it's idempotent — just CSS vars).
+   ============================================================ */
+
+:root {
+  /* Brand colors */
+  --vp-maroon-900: #4a0c14;
+  --vp-maroon-800: #5c0f1a;
+  --vp-maroon-700: #7a1322;
+  --vp-rose-700: #9f1d33;
+  --vp-rose-600: #b91c3c;
+  --vp-rose-50: #fdf2f4;
+  --vp-rose-100: #fbe4e8;
+
+  --vp-emerald-600: #16a34a;
+  --vp-emerald-700: #15803d;
+  --vp-amber-400: #fbbf24;
+
+  --vp-stone-900: #1c1917;
+  --vp-stone-800: #292524;
+  --vp-stone-700: #44403c;
+  --vp-stone-600: #57534e;
+  --vp-stone-500: #78716c;
+  --vp-stone-400: #a8a29e;
+  --vp-stone-200: #e7e5e4;
+  --vp-stone-100: #f5f5f4;
+
+  --vp-bg: #fffcfc;
+  --vp-white: #ffffff;
+
+  /* Spacing scale */
+  --vp-space-1: 4px;
+  --vp-space-2: 8px;
+  --vp-space-3: 12px;
+  --vp-space-4: 16px;
+  --vp-space-5: 20px;
+  --vp-space-6: 24px;
+  --vp-space-8: 32px;
+
+  /* Radius */
+  --vp-radius-sm: 8px;
+  --vp-radius-md: 12px;
+  --vp-radius-lg: 16px;
+  --vp-radius-full: 999px;
+
+  /* Shadow */
+  --vp-shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.06);
+  --vp-shadow-md: 0 4px 16px rgba(28, 25, 23, 0.08);
+
+  /* Font */
+  --vp-font: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
+    Arial, sans-serif;
+}
