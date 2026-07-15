@@ -37,6 +37,10 @@ body {
   background: #ffffff;
   padding: 18px 0;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+  position:fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .logo {
@@ -51,26 +55,24 @@ body {
 }
 
 .nav-link {
-  color: #555 !important;
-  font-weight: 500;
-  transition: 0.3s;
-  border-bottom: 2px solid #ffffff !important;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid white !important;
 
+}
+
+.active-link {
+  color: #7b0000 !important;
+  border-bottom: 2px solid #7b0000 !important;
+  transition: all 0.2s ease-out;
 }
 
 .nav-link:hover {
   color: #7b0000 !important;
   border-bottom: 2px solid #7b0000 !important;
   transition: all 0.2s ease-out;
-}
-.nav-link:active {
-  color: #7b0000 !important;
-  border-bottom: 2px solid #7b0000 !important;
-}
-
-.active-link {
-  color: #7b0000 !important;
-  border-bottom: 2px solid #7b0000;
 }
 
 .search-icon {
@@ -111,6 +113,13 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.95;
+  margin-top: 50px;
+}
+.blurred {
+  /* background: rgba(255, 255, 255, 0.2); */
+  backdrop-filter: blur(3px);
+  padding: 20px;
+  border-radius: 10px;
 }
 .landing-page h1{
   font-size: 3rem;

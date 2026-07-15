@@ -1,5 +1,6 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import '../VenuePage/VenuePage.css';
 const VenueCard = ({ venue, recommended = false }) => {
   return (
     <div className="venue-card">
@@ -30,7 +31,9 @@ const VenueCard = ({ venue, recommended = false }) => {
           <span className="star">&#9733;</span>
           <span className="rating-val fw-bold">{venue.rating}</span>
         </div>
-        <button className="view-profile-btn w-100">VIEW PROFILE</button>
+        <Link to={`/Vendor_Profile_Page/venue/${venue.id}`} className="view-profile-btn w-100 ">
+          VIEW PROFILE
+        </Link>
       </div>
     </div>
   );

@@ -58,14 +58,19 @@ const LandingPage = () => {
   return (
     <>
       <Navbar />
+      
 
       <div className='landing-page d-flex flex-column align-items-center justify-content-center text-center text-white pt-5' style={{ height: '100vh' }}>
+
+        <div className="blurred">
         <h1 style={{ fontFamily: 'serif' }} className='fw-bold'>Your Dream Shadi,  <br /> <span style={{ color: '#FFE088' }}>Planned Intelligently.</span></h1>
         <h5 className='fst-italic fw-normal'>From venue to valima — plan everything in one place.</h5>
 
         <div className="d-flex gap-3 mt-3">
           <button className='btn px-lg-5 py-3 start-planning-btn' style={{ backgroundColor: '#D4AF37', color: '#610000' }}>Start Planning</button>
           <button className='btn btn-outline-light px-lg-5 py-3'>View Demo</button>
+        </div>
+
         </div>
       </div>
 
@@ -96,7 +101,7 @@ const LandingPage = () => {
           {steps.map((step) => (
             <div key={step.num} className="how-step">
               <div className="how-circle">{step.num}</div>
-              {step.num < 3 && <div className="how-line" />}
+              {/* {step.num < 3 && <div className="how-line" />} */}
               <h3 className="how-title">{step.title}</h3>
               <p className="how-desc">{step.desc}</p>
             </div>
@@ -142,7 +147,10 @@ const LandingPage = () => {
 
      <Footer />
 
-
+   {/* Floating action button */}
+      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI'>
+        <i className="bi bi-stars"></i>
+      </button>
 
 
     </>

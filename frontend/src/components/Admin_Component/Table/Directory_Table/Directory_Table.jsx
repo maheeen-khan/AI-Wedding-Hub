@@ -1,95 +1,92 @@
 import "./Directory_Table.css";
 
 /**
- * VendorTable — Manage Vendors page table
+ * DirectoryTable — Reusable table for Vendors, Users, or any data
  *
  * Props:
- *   vendors  {Array}  array of vendor objects:
- *     { id, image, name, category, area, registeredDate, totalBookings, status }
- *   status values: "Approved" | "Pending" | "Rejected"
- *   onView(id)     open vendor detail
- *   onSearch(val)  search input change
- *   searchValue    controlled search input value
+ *   title          {string}   Table heading (e.g. "Vendor Directory", "User Directory")
+ *   searchPlaceholder {string}  Search input placeholder
+ *   columns        {Array}    Column definitions:
+ *     [{ key: string, label: string, width?: string, render?: fn }]
+ *   data           {Array}    Array of data objects (vendors, users, etc.)
+ *   onView(id)     {fn}       callback when view button clicked
+ *   onSearch(val)  {fn}       callback for search input change
+ *   searchValue    {string}   controlled search input value
+ *   emptyMessage   {string}   Message when no data
+ *   showViewBtn    {boolean}  Show view action button (default: true)
+ *   paginationInfo {string}   Custom pagination text (optional)
  */
 export default function Directory_Table({
-  vendors = [],
+  title = "Directory",
+  searchPlaceholder = "Search...",
+  columns = [],
+  data = [],
   onView,
   onSearch,
   searchValue = "",
+  emptyMessage = "No items found",
+  showViewBtn = true,
+  paginationInfo,
 }) {
   return (
-    <section className="vt-card">
+    <section className="dt-card">
       {/* Header row */}
-      <div className="vt-header">
-        <h2 className="vt-header__title">Vendor Directory</h2>
-        <div className="vt-header__controls">
-          <div className="vt-search">
-            <span className="vt-search__icon">🔍</span>
+      <div className="dt-header">
+        <h2 className="dt-header__title">{title}</h2>
+        <div className="dt-header__controls">
+          <div className="dt-search">
+            <span className="dt-search__icon">🔍</span>
             <input
-              className="vt-search__input"
+              className="dt-search__input"
               type="text"
-              placeholder="Search vendors..."
+              placeholder={searchPlaceholder}
               value={searchValue}
               onChange={(e) => onSearch && onSearch(e.target.value)}
             />
           </div>
-          <button className="vt-filter-btn">⚙ Filter</button>
+          <button className="dt-filter-btn">⚙ Filter</button>
         </div>
       </div>
 
-      {/* Scrollable table */}
-      <div className="vt-scroll">
-        <table className="vt-table">
+      {/* Table */}
+      <div className="dt-scroll">
+        <table className="dt-table">
           <thead>
             <tr>
-              <th>Vendor Name</th>
-              <th>Category</th>
-              <th>Area</th>
-              <th>Registered Date</th>
-              <th>Total Bookings</th>
-              <th>Status</th>
-              <th>Action.</th>
+              {columns.map((col) => (
+                <th key={col.key} style={col.width ? { width: col.width } : {}}>
+                  {col.label}
+                </th>
+              ))}
+              {showViewBtn && <th style={{ width: "36px" }}>Action</th>}
             </tr>
           </thead>
           <tbody>
-            {vendors.length === 0 ? (
+            {data.length === 0 ? (
               <tr>
-                <td colSpan={7} className="vt-empty">No vendors found</td>
+                <td colSpan={columns.length + (showViewBtn ? 1 : 0)} className="dt-empty">
+                  {emptyMessage}
+                </td>
               </tr>
             ) : (
-              vendors.map((v) => (
-                <tr key={v.id}>
-                  <td className="vt-name">
-                    <div className="vt-name__thumb">
-                      {v.image
-                        ? <img src={v.image} alt={v.name} className="vt-name__img" />
-                        : <span className="vt-name__fallback">{v.name?.[0]}</span>
-                      }
-                    </div>
-                    <span className="vt-name__text">{v.name}</span>
-                  </td>
-                  <td>
-                    <span className={`vt-category vt-category--${v.category?.toLowerCase().replace(/\s+/g, "-")}`}>
-                      {v.category}
-                    </span>
-                  </td>
-                  <td className="vt-area">{v.area}</td>
-                  <td className="vt-date">{v.registeredDate}</td>
-                  <td className="vt-bookings">{v.totalBookings}</td>
-                  <td>
-                    <span className={`vt-status vt-status--${v.status?.toLowerCase()}`}>
-                      {v.status}
-                    </span>
-                  </td>
-                  <td>
-                    <button
-                      className="vt-view-btn"
-                      title="View"
-                      onClick={() => onView && onView(v.id)}
-                    >
-                      👁
-                    </button>
-                  </td>
+              data.map((item) => (
+                <tr key={item.id}>
+                  {columns.map((col) => (
+                    <td key={col.key}>
+                      {col.render ? col.render(item) : item[col.key]}
+                    </td>
+                  ))}
+                  {showViewBtn && (
+                    <td>
+                      <button
+                        className="dt-view-btn"
+                        title="View"
+                        onClick={() => onView && onView(item.id)}
+                      >
+                        👁
+                      </button>
+                    </td>
+                  )}
                 </tr>
               ))
             )}
@@ -97,17 +94,17 @@ export default function Directory_Table({
         </table>
       </div>
 
-      {/* Pagination stub */}
-      <div className="vt-pagination">
-        <span className="vt-pagination__info">
-          Showing 1 to {vendors.length} of {vendors.length} vendors
+      {/* Pagination */}
+      <div className="dt-pagination">
+        <span className="dt-pagination__info">
+          {paginationInfo || `Showing 1 to ${data.length} of ${data.length} entries`}
         </span>
-        <div className="vt-pagination__pages">
-          <button className="vt-pg-btn" disabled>‹</button>
-          <button className="vt-pg-btn vt-pg-btn--active">1</button>
-          <button className="vt-pg-btn">2</button>
-          <button className="vt-pg-btn">3</button>
-          <button className="vt-pg-btn">›</button>
+        <div className="dt-pagination__pages">
+          <button className="dt-pg-btn" disabled>‹</button>
+          <button className="dt-pg-btn dt-pg-btn--active">1</button>
+          <button className="dt-pg-btn">2</button>
+          <button className="dt-pg-btn">3</button>
+          <button className="dt-pg-btn">›</button>
         </div>
       </div>
     </section>
