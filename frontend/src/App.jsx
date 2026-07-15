@@ -17,11 +17,11 @@ import DecorPage from './Pages/clientPages/DecorPage/DecorPage.jsx';
 import MakeupPage from './Pages/clientPages/MakeupPage/MakeupPage.jsx';
 import CarRentalPage from './Pages/clientPages/CarRentalPage/CarRentalPage.jsx';
 import SetupProfilePage from './Pages/clientPages/SetupProfilePage/SetupProfilePage.jsx';
+
 import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/BookingConfirmation.jsx';
+
 import VendorProfileRouter from './Pages/Vendor_Profile_Page/VendorProfileRouter.jsx';
 import Services1 from './Pages/clientPages/clientComponents/Services1.jsx';
-
-
 
 function App() {
   const [count, setCount] = useState(0)
@@ -59,8 +59,9 @@ function App() {
 
       </Routes>
     </BrowserRouter>
+
     </>
   )
 }
 
-export default App
+export default App;
