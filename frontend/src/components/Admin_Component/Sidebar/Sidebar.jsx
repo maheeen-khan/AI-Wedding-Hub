@@ -1,35 +1,24 @@
 import "./Sidebar.css";
 
 const navItems = [
-  { label: "Dashboard",      icon: "⊞" },
+  { label: "Dashboard", icon: "⊞" },
   { label: "Manage Vendors", icon: "🏪" },
-  { label: "Manage Users",   icon: "👤" },
+  { label: "Manage Users", icon: "👤" },
 ];
 
-/**
- * Sidebar
- *
- * Props:
- *   activeNav    {string}   current active nav label
- *   setActiveNav {function} change active nav
- *   isOpen       {boolean}  mobile drawer open state (controlled by parent)
- *   onClose      {function} close mobile drawer
- */
 export default function Sidebar({ activeNav, setActiveNav, isOpen, onClose }) {
   const handleNavClick = (label) => {
-    setActiveNav(label);
+    setActiveNav(label); // This now calls the navigate function from Layout
     if (onClose) onClose();
   };
 
   return (
     <>
-      {/* Dark overlay behind the drawer (mobile only) */}
       {isOpen && (
         <div className="sidebar__overlay" onClick={onClose} aria-hidden="true" />
       )}
 
       <aside className={`sidebar${isOpen ? " sidebar--open" : ""}`}>
-        {/* ✕ close button — only shown when drawer is open on mobile */}
         <button
           className="sidebar__close"
           onClick={onClose}
@@ -38,7 +27,6 @@ export default function Sidebar({ activeNav, setActiveNav, isOpen, onClose }) {
           ✕
         </button>
 
-        {/* Brand */}
         <div className="sidebar__brand">
           <span className="sidebar__brand-icon">💍</span>
           <div className="sidebar__brand-text">
@@ -47,7 +35,6 @@ export default function Sidebar({ activeNav, setActiveNav, isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Nav */}
         <nav className="sidebar__nav">
           {navItems.map((item) => (
             <button
@@ -64,7 +51,6 @@ export default function Sidebar({ activeNav, setActiveNav, isOpen, onClose }) {
           ))}
         </nav>
 
-        {/* Footer */}
         <div className="sidebar__footer">
           <button className="sidebar__nav-item" title="Settings">
             <span className="sidebar__nav-icon">⚙️</span>
