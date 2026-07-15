@@ -1,14 +1,19 @@
 import { useState } from "react";
 import {
-  LineChart, Line, XAxis, YAxis,
-  Tooltip, ResponsiveContainer, Legend,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
 } from "recharts";
 
 import Sidebar from "../../../components/Admin_Component/Sidebar/Sidebar";
 import Navbar from "../../../components/Admin_Component/Navbar/Navbar";
 import Cards from "../../../components/Admin_Component/Cards/Cards";
-import PendingVendorApprovalsTable from "../../../components/Admin_Component/Table/Pending_Vendor_Approvals_Table/Pending_Approvals_Table"
-import RecentlyRegisteredUsersTable from "../../../components/Admin_Component/Table/Recently_Registered_Users_Table/Recently_Registered_Users_Table"
+import PendingVendorApprovalsTable from "../../../components/Admin_Component/Table/Pending_Vendor_Approvals_Table/Pending_Approvals_Table";
+import RecentlyRegisteredUsersTable from "../../../components/Admin_Component/Table/Recently_Registered_Users_Table/Recently_Registered_Users_Table";
 import "./Admin_Dashboard.css";
 
 /* ── Static sample data ── */
@@ -23,22 +28,89 @@ const activityData = [
 ];
 
 const PENDING_VENDORS = [
-  { id: 1, icon: "🌸", name: "Petals & Prosecco", category: "Decor & Floral", location: "Mumbai, MH", date: "Oct 24, 2023" },
-  { id: 2, icon: "📷", name: "Lens Legacy Studios", category: "Photography", location: "Delhi, NCR", date: "Oct 25, 2023" },
-  { id: 3, icon: "🍽️", name: "Royal Rasoi Catering", category: "Catering", location: "Jaipur, RJ", date: "Oct 25, 2023" },
+  {
+    id: 1,
+    icon: "🌸",
+    name: "Petals & Prosecco",
+    category: "Decor & Floral",
+    location: "Mumbai, MH",
+    date: "Oct 24, 2023",
+  },
+  {
+    id: 2,
+    icon: "📷",
+    name: "Lens Legacy Studios",
+    category: "Photography",
+    location: "Delhi, NCR",
+    date: "Oct 25, 2023",
+  },
+  {
+    id: 3,
+    icon: "🍽️",
+    name: "Royal Rasoi Catering",
+    category: "Catering",
+    location: "Jaipur, RJ",
+    date: "Oct 25, 2023",
+  },
 ];
 
 const RECENT_USERS = [
-  { initials: "AM", name: "Ananya Mishra", email: "ananya.m@example.com", role: "COUPLE", registered: "Today, 10:41 AM", status: "Active" },
-  { initials: "VK", name: "Vikram Khanna", email: "v.khanna@vendor.ee", role: "VENDOR", registered: "Today, 09:12 AM", status: "Active" },
-  { initials: "RS", name: "Rohan Sharma", email: "rohan.sharma@example.com", role: "COUPLE", registered: "Yesterday", status: "Active" },
+  {
+    initials: "AM",
+    name: "Ananya Mishra",
+    email: "ananya.m@example.com",
+    role: "COUPLE",
+    registered: "Today, 10:41 AM",
+    status: "Active",
+  },
+  {
+    initials: "VK",
+    name: "Vikram Khanna",
+    email: "v.khanna@vendor.ee",
+    role: "VENDOR",
+    registered: "Today, 09:12 AM",
+    status: "Active",
+  },
+  {
+    initials: "RS",
+    name: "Rohan Sharma",
+    email: "rohan.sharma@example.com",
+    role: "COUPLE",
+    registered: "Yesterday",
+    status: "Active",
+  },
 ];
 
 const STAT_CARDS = [
-  { icon: "👥", label: "Total Users", value: "1,240", sub: "↑ +12% from last month", subType: "positive" },
-  { icon: "🏪", label: "Total Vendors", value: "200", sub: "↑ +8% vs last week", subType: "positive" },
-  { icon: "📋", label: "Pending Approvals", value: "8", sub: "⚠ Action Required", subType: "alert", urgent: true },
-  { icon: "📅", label: "Active Bookings", value: "156", sub: "Currently in progress", subType: "neutral" },
+  {
+    icon: "👥",
+    label: "Total Users",
+    value: "1,240",
+    sub: "↑ +12% from last month",
+    subType: "positive",
+  },
+  {
+    icon: "🏪",
+    label: "Total Vendors",
+    value: "200",
+    sub: "↑ +8% vs last week",
+    subType: "positive",
+  },
+  {
+    icon: "📋",
+    label: "Pending Approvals",
+    value: "8",
+    sub: "⚠ Action Required",
+    subType: "alert",
+    urgent: true,
+  },
+  {
+    icon: "📅",
+    label: "Active Bookings",
+    value: "156",
+    sub: "Currently in progress",
+    subType: "neutral",
+  },
 ];
 
 export default function Admin_Dashboard() {
@@ -56,75 +128,97 @@ export default function Admin_Dashboard() {
 
       {/* Chart + Urgent Tasks */}
       <section className="mid-row">
+        {/* Chart */}
         <div className="card chart-card">
           <h2 className="card__title">Platform Activity</h2>
+
           <ResponsiveContainer width="100%" height={200}>
             <LineChart data={activityData}>
-              <XAxis dataKey="day" tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
-              <Tooltip contentStyle={{ borderRadius: 8, border: "1px solid #eee", fontSize: 12 }} />
-              <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-              <Line type="monotone" dataKey="bookings" stroke="#7b1c2e" strokeWidth={2.5} dot={false} name="App bookings" />
-              <Line type="monotone" dataKey="vendors" stroke="#d4a017" strokeWidth={2.5} dot={false} name="New vendors" />
+              <XAxis
+                dataKey="day"
+                tick={{ fontSize: 11, fill: "#888" }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis
+                tick={{ fontSize: 11, fill: "#888" }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <Tooltip
+                contentStyle={{
+                  borderRadius: 8,
+                  border: "1px solid #eee",
+                  fontSize: 12,
+                }}
+              />
+              <Legend
+                iconType="circle"
+                iconSize={8}
+                wrapperStyle={{ fontSize: 12, paddingTop: 8 }}
+              />
+              <Line
+                type="monotone"
+                dataKey="bookings"
+                stroke="#7b1c2e"
+                strokeWidth={2.5}
+                dot={false}
+                name="App Bookings"
+              />
+              <Line
+                type="monotone"
+                dataKey="vendors"
+                stroke="#d4a017"
+                strokeWidth={2.5}
+                dot={false}
+                name="New Vendors"
+              />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
+        {/* Urgent Tasks */}
         <div className="card urgent-card">
           <h2 className="card__title urgent-card__title">Urgent Tasks</h2>
+
           <div className="urgent-item">
-            <span className="urgent-item__dot urgent-item__dot--red" />
+            <span className="urgent-item__dot urgent-item__dot--red"></span>
             <div>
-              <p className="urgent-item__heading">8 Vendors Awaiting Review</p>
-              <p className="urgent-item__desc">Pending for more than 48 hours</p>
-          {/* Chart + Urgent Tasks */}
-          <section className="mid-row">
-            <div className="card chart-card">
-              <h2 className="card__title">Platform Activity</h2>
-              <ResponsiveContainer width="100%" height={200}>
-                <LineChart data={activityData}>
-                  <XAxis dataKey="day" tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
-                  <Tooltip contentStyle={{ borderRadius: 8, border: "1px solid #eee", fontSize: 12 }} />
-                  <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-                  <Line type="monotone" dataKey="bookings" stroke="#7b1c2e" strokeWidth={2.5} dot={false} name="App bookings" />
-                  <Line type="monotone" dataKey="vendors" stroke="#d4a017" strokeWidth={2.5} dot={false} name="New vendors" />
-                </LineChart>
-              </ResponsiveContainer>
+              <p className="urgent-item__heading">
+                8 Vendors Awaiting Review
+              </p>
+              <p className="urgent-item__desc">
+                Pending for more than 48 hours
+              </p>
             </div>
           </div>
+
           <div className="urgent-item">
-            <span className="urgent-item__dot urgent-item__dot--yellow" />
+            <span className="urgent-item__dot urgent-item__dot--yellow"></span>
             <div>
               <p className="urgent-item__heading">Low Stock Alert</p>
-              <p className="urgent-item__desc">Items need to be updated</p>
+              <p className="urgent-item__desc">
+                Items need to be updated
+              </p>
             </div>
           </div>
-          <button className="urgent-card__btn">Launch Review Wizard</button>
-          </section>
 
-          {/* Pending Vendor Approvals Table */}
-          <PendingVendorApprovalsTable
-            vendors={PENDING_VENDORS}
-            onApprove={(id) => console.log("Approve vendor", id)}
-            onReject={(id) => console.log("Reject vendor", id)}
-            onViewAll={() => setActiveNav("Manage Vendors")}
-          />
-
-          {/* Recently Registered Users Table */}
-          <RecentlyRegisteredUsersTable users={RECENT_USERS} />
-
+          <button className="urgent-card__btn">
+            Launch Review Wizard
+          </button>
         </div>
       </section>
 
-      {/* Tables */}
+      {/* Pending Vendor Approvals */}
       <PendingVendorApprovalsTable
         vendors={PENDING_VENDORS}
         onApprove={(id) => console.log("Approve vendor", id)}
         onReject={(id) => console.log("Reject vendor", id)}
+        onViewAll={() => setActiveNav("Manage Vendors")}
       />
+
+      {/* Recently Registered Users */}
       <RecentlyRegisteredUsersTable users={RECENT_USERS} />
-      
     </>
   );
 }

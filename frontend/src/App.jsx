@@ -20,7 +20,6 @@ import SetupProfilePage from './Pages/clientPages/SetupProfilePage/SetupProfileP
 
 import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/BookingConfirmation.jsx';
 
-import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/BookingConfirmation.jsx';
 import VendorProfileRouter from './Pages/Vendor_Profile_Page/VendorProfileRouter.jsx';
 import Services1 from './Pages/clientPages/clientComponents/Services1.jsx';
 
