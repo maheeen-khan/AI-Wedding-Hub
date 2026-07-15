@@ -1,47 +1,34 @@
 /* ===========================
-   Navbar Component
+   Navbar Component Styles
    =========================== */
 
 .navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #ece8e4;
+  padding: 0 24px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Left space accounts for sidebar (210px) already in layout,
-     so we just add comfortable inner padding */
-  padding: 14px 24px 14px 28px;
-  background: #ffffff;
-  border-bottom: 1px solid #ece8e4;
   position: sticky;
   top: 0;
   z-index: 100;
-  gap: 16px;
-  min-height: 58px;
 }
 
-/* ── Left ── */
 .navbar__left {
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-width: 0;
+  gap: 16px;
 }
 
-/* Hamburger — hidden on desktop, shown on mobile */
 .navbar__menu-btn {
   display: none;
   background: none;
   border: none;
   font-size: 20px;
   cursor: pointer;
-  padding: 4px 6px;
-  border-radius: 6px;
+  padding: 4px;
   color: #1a1a1a;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.navbar__menu-btn:hover {
-  background: #f7f4f1;
 }
 
 .navbar__title {
@@ -49,131 +36,77 @@
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  padding-left: 20px;
 }
 
-/* ── Right ── */
 .navbar__right {
   display: flex;
   align-items: center;
   gap: 16px;
-  flex-shrink: 0;
-  /* Space between right section and edge */
-  padding-right: 8px;
 }
 
 .navbar__bell {
-  font-size: 17px;
-  cursor: pointer;
   background: none;
   border: none;
-  padding: 5px;
-  border-radius: 6px;
-  transition: background 0.15s;
-  line-height: 1;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  position: relative;
 }
 
-.navbar__bell:hover {
-  background: #f7f4f1;
-}
-
-/* ── Admin info ── */
 .navbar__admin {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* Text block: name on top, email below */
 .navbar__admin-info {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  line-height: 1.3;
+  gap: 2px;
 }
 
 .navbar__admin-name {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
   color: #1a1a1a;
-  white-space: nowrap;
 }
 
 .navbar__admin-email {
-  font-size: 10.5px;
+  font-size: 10px;
   color: #999999;
-  white-space: nowrap;
 }
 
-/* Avatar circle — always visible, sits to the RIGHT of text */
 .navbar__avatar {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: #7b1c2e;
   color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
-  user-select: none;
-  flex-shrink: 0;
-  /* Small gap from page edge */
-  margin-right: 4px;
 }
 
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
-
-/* Tablet: sidebar shrinks to 62px rail, give title more space */
-@media (max-width: 900px) {
-  .navbar {
-    padding: 12px 20px 12px 20px;
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .navbar__menu-btn {
+    display: block;
   }
-
-  /* Hide email, keep name */
-  .navbar__admin-email {
+  
+  .navbar__admin-info {
     display: none;
   }
-
-  .navbar__title {
-    font-size: 15px;
-  }
-}
-
-/* Mobile: sidebar becomes off-canvas, show hamburger */
-@media (max-width: 767px) {
+  
   .navbar {
-    padding: 11px 16px 11px 14px;
+    padding: 0 16px;
+    height: 56px;
   }
-
-  .navbar__menu-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
+  
   .navbar__title {
     font-size: 14px;
-  }
-
-  /* Keep admin name visible on mobile — just hide email */
-  .navbar__admin-email {
-    display: none;
-  }
-}
-
-/* Very small screens */
-@media (max-width: 400px) {
-  .navbar__admin-name {
-    display: none;
-  }
-
-  .navbar__title {
-    font-size: 13px;
   }
 }

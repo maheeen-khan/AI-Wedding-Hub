@@ -1,0 +1,18 @@
+/* Manage_Vendors.css */
+.mv-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .mv-stats { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .mv-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+}
+
+@media (max-width: 400px) {
+  .mv-stats { grid-template-columns: 1fr; }
+}
