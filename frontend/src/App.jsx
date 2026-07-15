@@ -5,7 +5,10 @@ import LandingPage from './Pages/clientPages/LandingPage/LandingPage'
 import Login_Page from './Pages/Login_SignUp/Login_Page/Login_Page'
 import SignUp_Page from './Pages/Login_SignUp/SignUp_Page/Signup_Page'
 import VenuePage from './Pages/clientPages/VenuePage/VenuePage.jsx';
+import Layout from './Pages/Admin/Admin_Layout/Admin_Layout.jsx'
 import Admin_Dashboard from './Pages/Admin/Admin_Dashboard/Admin_Dashboard.jsx'
+import Manage_Vendors from './Pages/Admin/Manage_Vendors/Manage_Vendors.jsx'
+import Manage_Users from './Pages/Admin/Manage_Users/Manage_Users.jsx'
 import CateringPage from './Pages/clientPages/CateringPage/CateringPage.jsx';
 import PhotographyPage from './Pages/clientPages/PhotographyPage/PhotographyPage.jsx';
 import BasePage from './Pages/clientPages/BasePage/BasePage.jsx';
@@ -14,6 +17,7 @@ import DecorPage from './Pages/clientPages/DecorPage/DecorPage.jsx';
 import MakeupPage from './Pages/clientPages/MakeupPage/MakeupPage.jsx';
 import CarRentalPage from './Pages/clientPages/CarRentalPage/CarRentalPage.jsx';
 import SetupProfilePage from './Pages/clientPages/SetupProfilePage/SetupProfilePage.jsx';
+import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/BookingConfirmation.jsx';
 import VendorProfileRouter from './Pages/Vendor_Profile_Page/VendorProfileRouter.jsx';
 import Services1 from './Pages/clientPages/clientComponents/Services1.jsx';
 
@@ -49,9 +53,12 @@ function App() {
 
           <Route path='/car-rental' element={<BasePage mainheading={'Wedding Car Rental in Karachi'} subhead={"Showing car services matching your budget and events. From vintage classics to modern luxury, arrive in style."}><CarRentalPage /></BasePage>} />
 
-          <Route path='/base' element={<BasePage />} />
-        </Routes>
-      </BrowserRouter>
+        <Route path='/base' element={<BasePage/>}/>
+
+        <Route path='/booking-confirmation' element={<BookingConfirmation/>}/>
+
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
