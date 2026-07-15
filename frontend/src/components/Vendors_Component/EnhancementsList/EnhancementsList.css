@@ -1,0 +1,35 @@
+.vp-enhancements__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--vp-stone-900);
+  margin: 0 0 12px;
+}
+
+.vp-enhancements__list {
+  border: 1px solid var(--vp-stone-200);
+  border-radius: var(--vp-radius-md);
+  background: var(--vp-white);
+  overflow: hidden;
+}
+
+.vp-enhancements__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.vp-enhancements__row + .vp-enhancements__row {
+  border-top: 1px solid var(--vp-stone-200);
+}
+
+.vp-enhancements__name {
+  font-size: 14px;
+  color: var(--vp-stone-700);
+}
+
+.vp-enhancements__price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vp-rose-700);
+}

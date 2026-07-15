@@ -4,10 +4,11 @@ import {
   Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
 
+import Sidebar from "../../../components/Admin_Component/Sidebar/Sidebar";
+import Navbar from "../../../components/Admin_Component/Navbar/Navbar";
 import Cards from "../../../components/Admin_Component/Cards/Cards";
-import PendingVendorApprovalsTable from "../../../components/Admin_Component/Table/Pending_Vendor_Approvals_Table/Pending_Approvals_Table";
-import RecentlyRegisteredUsersTable from "../../../components/Admin_Component/Table/Recently_Registered_Users_Table/Recently_Registered_Users_Table";
-
+import PendingVendorApprovalsTable from "../../../components/Admin_Component/Table/Pending_Vendor_Approvals_Table/Pending_Approvals_Table"
+import RecentlyRegisteredUsersTable from "../../../components/Admin_Component/Table/Recently_Registered_Users_Table/Recently_Registered_Users_Table"
 import "./Admin_Dashboard.css";
 
 /* ── Static sample data ── */
@@ -41,6 +42,9 @@ const STAT_CARDS = [
 ];
 
 export default function Admin_Dashboard() {
+  const [activeNav, setActiveNav] = useState("Dashboard");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <>
       {/* Stats Cards */}
@@ -73,6 +77,20 @@ export default function Admin_Dashboard() {
             <div>
               <p className="urgent-item__heading">8 Vendors Awaiting Review</p>
               <p className="urgent-item__desc">Pending for more than 48 hours</p>
+          {/* Chart + Urgent Tasks */}
+          <section className="mid-row">
+            <div className="card chart-card">
+              <h2 className="card__title">Platform Activity</h2>
+              <ResponsiveContainer width="100%" height={200}>
+                <LineChart data={activityData}>
+                  <XAxis dataKey="day" tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
+                  <Tooltip contentStyle={{ borderRadius: 8, border: "1px solid #eee", fontSize: 12 }} />
+                  <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
+                  <Line type="monotone" dataKey="bookings" stroke="#7b1c2e" strokeWidth={2.5} dot={false} name="App bookings" />
+                  <Line type="monotone" dataKey="vendors" stroke="#d4a017" strokeWidth={2.5} dot={false} name="New vendors" />
+                </LineChart>
+              </ResponsiveContainer>
             </div>
           </div>
           <div className="urgent-item">
@@ -83,6 +101,19 @@ export default function Admin_Dashboard() {
             </div>
           </div>
           <button className="urgent-card__btn">Launch Review Wizard</button>
+          </section>
+
+          {/* Pending Vendor Approvals Table */}
+          <PendingVendorApprovalsTable
+            vendors={PENDING_VENDORS}
+            onApprove={(id) => console.log("Approve vendor", id)}
+            onReject={(id) => console.log("Reject vendor", id)}
+            onViewAll={() => setActiveNav("Manage Vendors")}
+          />
+
+          {/* Recently Registered Users Table */}
+          <RecentlyRegisteredUsersTable users={RECENT_USERS} />
+
         </div>
       </section>
 
