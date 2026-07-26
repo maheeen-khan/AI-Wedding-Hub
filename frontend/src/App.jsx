@@ -23,6 +23,7 @@ import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/Bookin
 import VendorProfileRouter from './Pages/Vendor_Profile_Page/VendorProfileRouter.jsx';
 import Services1 from './Pages/clientPages/clientComponents/Services1.jsx';
 import Invitation from './Pages/Invitation/Invitation.jsx';
+import ContactUs from './Pages/clientPages/ContactUsPage/ContactUs.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -41,7 +42,7 @@ function App() {
           <Route path='/vendors' element={<Services1 />} />
           <Route path="/Chatbot" element={<Chatbot />} />
           <Route path="/Invitation" element={<Invitation />} />
-
+          <Route path='/contact-us' element={<BasePage mainheading={'Contact Us'} subhead={'We would love to hear from you! Please fill out the form below and we will get back to you as soon as possible.'}><ContactUs/></BasePage>} />
 
          
 
