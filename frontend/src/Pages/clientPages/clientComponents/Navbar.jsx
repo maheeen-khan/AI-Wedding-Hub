@@ -36,7 +36,7 @@ const Navbar = () => {
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link  " href="/planner">
+                            <a className="nav-link  " href="/Chatbot">
                                 AI Planner
                             </a>
                         </li>
