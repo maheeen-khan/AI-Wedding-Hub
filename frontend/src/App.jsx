@@ -22,6 +22,7 @@ import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/Bookin
 
 import VendorProfileRouter from './Pages/Vendor_Profile_Page/VendorProfileRouter.jsx';
 import Services1 from './Pages/clientPages/clientComponents/Services1.jsx';
+import Invitation from './Pages/Invitation/Invitation.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -38,6 +39,9 @@ function App() {
           <Route path='/admin' element={<Admin_Dashboard />} />
           <Route path='/Vendor_Profile_Page/:type/:id' element={<VendorProfileRouter />} />
           <Route path='/vendors' element={<Services1 />} />
+          <Route path="/Invitation" element={<Invitation />} />
+
+
          
 
 
