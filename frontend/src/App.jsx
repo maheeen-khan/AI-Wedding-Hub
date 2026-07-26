@@ -17,7 +17,7 @@ import DecorPage from './Pages/clientPages/DecorPage/DecorPage.jsx';
 import MakeupPage from './Pages/clientPages/MakeupPage/MakeupPage.jsx';
 import CarRentalPage from './Pages/clientPages/CarRentalPage/CarRentalPage.jsx';
 import SetupProfilePage from './Pages/clientPages/SetupProfilePage/SetupProfilePage.jsx';
-
+import Chatbot from './Pages/Chatbot/chatbot.jsx';
 import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/BookingConfirmation.jsx';
 
 import VendorProfileRouter from './Pages/Vendor_Profile_Page/VendorProfileRouter.jsx';
@@ -38,6 +38,8 @@ function App() {
           <Route path='/admin' element={<Admin_Dashboard />} />
           <Route path='/Vendor_Profile_Page/:type/:id' element={<VendorProfileRouter />} />
           <Route path='/vendors' element={<Services1 />} />
+          <Route path="/Chatbot" element={<Chatbot />} />
+
          
 
 
