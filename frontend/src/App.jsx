@@ -42,9 +42,9 @@ function App() {
           <Route path='/vendors' element={<Services1 />} />
           <Route path="/Chatbot" element={<Chatbot />} />
           <Route path="/Invitation" element={<Invitation />} />
-          <Route path='/contact-us' element={<BasePage mainheading={'Contact Us'} subhead={'We would love to hear from you! Please fill out the form below and we will get back to you as soon as possible.'}><ContactUs/></BasePage>} />
 
-         
+
+          <Route path='/contact-us' element={<BasePage mainheading={'Contact Us'} subhead={'We would love to hear from you! Please fill out the form below and we will get back to you as soon as possible.'}  recommendation='False'><ContactUs/></BasePage>} />
 
 
           <Route path='/venue' element={<BasePage mainheading={'Wedding Venues in Karachi'} subhead={'Showing venues matching your budget and guest count.'}><VenuePage /></BasePage>} />

@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import CateringCard from '../clientComponents/CateringCard.jsx';
 import car1 from '../../../assets/car1.png';
-
+import {useNavigate} from 'react-router-dom';
 import venueDivider from '../../../assets/venue-divider.png'
 
 const recommendedCars = [
@@ -179,7 +179,7 @@ const ITEMS_PER_PAGE = 9;
 
 
 const CarRentalPage = () => {
-
+  const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(1);
         const totalPages = Math.ceil(allCars.length / ITEMS_PER_PAGE);
         const paginatedCar = allCars.slice(
@@ -248,7 +248,7 @@ const CarRentalPage = () => {
                     </div>
                              </div>
                                 {/* Floating action button */}
-      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI'>
+      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
         <i className="bi bi-stars"></i>
       </button>
                             </div>

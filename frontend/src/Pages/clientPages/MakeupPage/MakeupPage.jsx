@@ -3,7 +3,7 @@ import CateringCard from '../clientComponents/CateringCard.jsx';
 import makeup1 from '../../../assets/makeup1.png';
 import makeup2 from '../../../assets/makeup2.png';
 import makeup3 from '../../../assets/makeup3.png';
-
+import { useNavigate } from 'react-router-dom';
 import venueDivider from '../../../assets/venue-divider.png'
 
 const recommendedMakeupArtists = [
@@ -151,7 +151,7 @@ const ITEMS_PER_PAGE = 9;
 
 
 const MakeupPage = () => {
-
+  const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(1);
         const totalPages = Math.ceil(allMakeupArtists.length / ITEMS_PER_PAGE);
         const paginatedMakeupArtist = allMakeupArtists.slice(
@@ -222,7 +222,7 @@ const MakeupPage = () => {
                              </div>
 
                                 {/* Floating action button */}
-      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI'>
+      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
         <i className="bi bi-stars"></i>
       </button>
                             </div>
