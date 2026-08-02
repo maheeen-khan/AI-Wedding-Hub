@@ -7,6 +7,7 @@ import decor4 from '../../../assets/decor4.png';
 import decor5 from '../../../assets/decor5.png';
 import decor6 from '../../../assets/decor6.png';
 import venueDivider from '../../../assets/venue-divider.png'
+import { useNavigate } from 'react-router-dom';
 
 const recommendedDecorators = [
   { id: 1, name: "Grand Events by Z&H", location: "DHA Phase 6, Karachi", price: "PKR 500K - 2M", starting: "PKR 500K - 2M", rating: "4.9", image: decor4, events: ["Royal", "Premium"] },
@@ -32,6 +33,7 @@ const allDecorators = [
 const ITEMS_PER_PAGE = 9;
 
 const DecorPage = () => {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(allDecorators.length / ITEMS_PER_PAGE);
   const paginatedDecorators = allDecorators.slice(
@@ -99,7 +101,7 @@ const DecorPage = () => {
         </div>
 
         {/* Floating action button */}
-        <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI'>
+        <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI'onClick={() => navigate('/Chatbot')}>
           <i className="bi bi-stars"></i>
         </button>
 

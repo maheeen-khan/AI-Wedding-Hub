@@ -25,6 +25,7 @@ const SearchModal = () => {
             tabIndex="-1"
             aria-labelledby="searchModalLabel"
             aria-hidden="true"
+            
         >
             <div className="modal-dialog modal-dialog-centered">
             

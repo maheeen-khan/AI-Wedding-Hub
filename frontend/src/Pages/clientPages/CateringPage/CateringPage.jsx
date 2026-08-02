@@ -4,7 +4,7 @@ import catering1 from '../../../assets/catering1.png';
 import catering2 from '../../../assets/catering2.png';
 import catering3 from '../../../assets/catering3.png';
 import venueDivider from '../../../assets/venue-divider.png';
-
+import { useNavigate } from 'react-router-dom';
 import banquet4 from '../../../assets/banquet4.png';
 // import './VenuePage.css';
 
@@ -138,7 +138,7 @@ const ITEMS_PER_PAGE = 9;
 
 
 const CateringPage = () => {
-
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(allCaterers.length / ITEMS_PER_PAGE);
   const paginatedCaterers = allCaterers.slice(
@@ -214,7 +214,7 @@ const CateringPage = () => {
  
       </div>
          {/* Floating action button */}
-      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI'>
+      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
         <i className="bi bi-stars"></i>
       </button>
     </div>

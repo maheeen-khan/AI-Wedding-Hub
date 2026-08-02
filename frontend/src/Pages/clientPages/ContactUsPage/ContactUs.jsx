@@ -1,13 +1,16 @@
 import "./ContactUs.css";
-
+import contactus from "../../../Assets/contactus.jfif";
+import { useNavigate } from 'react-router-dom';
 export default function ContactUs() {
+  const navigate = useNavigate();
   return (
-    <section className="contact-page">
+    <>
+    <section className="contact-page my-5">
 
       {/* Left Side */}
       <div className="contact-left">
         <img
-          src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200"
+          src={contactus}
           alt="Wedding Venue"
         />
 
@@ -77,6 +80,15 @@ export default function ContactUs() {
 
       </div>
 
+{/* Floating action button */}
+      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
+        <i className="bi bi-stars"></i>
+      </button>
+
     </section>
+
+     
+
+      </>
   );
 }

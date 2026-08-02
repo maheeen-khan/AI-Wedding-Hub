@@ -4,7 +4,7 @@ import Footer from '../clientComponents/Footer';
 import venueDivider from '../../../assets/venue-divider.png'
 
 
-const BasePage = ({mainheading,subhead,children}) => {
+const BasePage = ({mainheading,subhead,children,recommendation='True'}) => {
 
    
 
@@ -24,11 +24,14 @@ const BasePage = ({mainheading,subhead,children}) => {
 
                     {/* ── Recommended Section ── */}
                     <div className="my-4">
+{recommendation === 'True' && (
+    <>
                         <div className="d-flex align-items-center gap-2 mb-1">
                             <span className="recommended-star">&#9733;</span>
                             <h4 className="section-heading mb-0">Recommended for You</h4>
                         </div>
                         <p className="section-sub mb-1 ps-2">Based on your wedding profile and preferences</p>
+</>)}
                         <div className="row g-3">
                                            {children}
 
