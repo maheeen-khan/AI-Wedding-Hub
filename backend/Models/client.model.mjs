@@ -1,0 +1,1 @@
+// Here, define the client model schema only
