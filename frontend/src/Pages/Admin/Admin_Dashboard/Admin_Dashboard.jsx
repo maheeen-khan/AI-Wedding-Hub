@@ -56,6 +56,7 @@ export default function Admin_Dashboard() {
 
       {/* Chart + Urgent Tasks */}
       <section className="mid-row">
+        {/* Chart Card */}
         <div className="card chart-card">
           <h2 className="card__title">Platform Activity</h2>
           <ResponsiveContainer width="100%" height={200}>
@@ -70,29 +71,18 @@ export default function Admin_Dashboard() {
           </ResponsiveContainer>
         </div>
 
+        {/* Urgent Tasks Card */}
         <div className="card urgent-card">
           <h2 className="card__title urgent-card__title">Urgent Tasks</h2>
+
           <div className="urgent-item">
             <span className="urgent-item__dot urgent-item__dot--red" />
             <div>
               <p className="urgent-item__heading">8 Vendors Awaiting Review</p>
               <p className="urgent-item__desc">Pending for more than 48 hours</p>
-          {/* Chart + Urgent Tasks */}
-          <section className="mid-row">
-            <div className="card chart-card">
-              <h2 className="card__title">Platform Activity</h2>
-              <ResponsiveContainer width="100%" height={200}>
-                <LineChart data={activityData}>
-                  <XAxis dataKey="day" tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 11, fill: "#888" }} axisLine={false} tickLine={false} />
-                  <Tooltip contentStyle={{ borderRadius: 8, border: "1px solid #eee", fontSize: 12 }} />
-                  <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-                  <Line type="monotone" dataKey="bookings" stroke="#7b1c2e" strokeWidth={2.5} dot={false} name="App bookings" />
-                  <Line type="monotone" dataKey="vendors" stroke="#d4a017" strokeWidth={2.5} dot={false} name="New vendors" />
-                </LineChart>
-              </ResponsiveContainer>
             </div>
           </div>
+
           <div className="urgent-item">
             <span className="urgent-item__dot urgent-item__dot--yellow" />
             <div>
@@ -100,31 +90,21 @@ export default function Admin_Dashboard() {
               <p className="urgent-item__desc">Items need to be updated</p>
             </div>
           </div>
+
           <button className="urgent-card__btn">Launch Review Wizard</button>
-          </section>
-
-          {/* Pending Vendor Approvals Table */}
-          <PendingVendorApprovalsTable
-            vendors={PENDING_VENDORS}
-            onApprove={(id) => console.log("Approve vendor", id)}
-            onReject={(id) => console.log("Reject vendor", id)}
-            onViewAll={() => setActiveNav("Manage Vendors")}
-          />
-
-          {/* Recently Registered Users Table */}
-          <RecentlyRegisteredUsersTable users={RECENT_USERS} />
-
         </div>
       </section>
 
-      {/* Tables */}
+      {/* Pending Vendor Approvals Table */}
       <PendingVendorApprovalsTable
         vendors={PENDING_VENDORS}
         onApprove={(id) => console.log("Approve vendor", id)}
         onReject={(id) => console.log("Reject vendor", id)}
+        onViewAll={() => setActiveNav("Manage Vendors")}
       />
+
+      {/* Recently Registered Users Table */}
       <RecentlyRegisteredUsersTable users={RECENT_USERS} />
-      
     </>
   );
 }
