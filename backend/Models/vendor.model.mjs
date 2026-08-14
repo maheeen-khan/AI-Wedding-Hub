@@ -1,0 +1,1 @@
+// here, only vendor model is written

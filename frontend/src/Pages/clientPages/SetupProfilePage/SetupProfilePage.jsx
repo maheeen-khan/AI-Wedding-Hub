@@ -253,7 +253,7 @@ export default function SetupProfilePage() {
       </footer>
 
       {/* Floating action button */}
-      <button type="button" className="ww-fab" aria-label="AI Assistant">
+      <button type="button" className="ww-fab" aria-label="AI Assistant" onClick={() => navigate('/Chatbot')}>
         <i className="bi bi-stars"></i>
       </button>
     </div>
