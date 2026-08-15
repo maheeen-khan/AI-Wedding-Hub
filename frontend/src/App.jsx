@@ -5,7 +5,7 @@ import LandingPage from './Pages/clientPages/LandingPage/LandingPage'
 import Login_Page from './Pages/Login_SignUp/Login_Page/Login_Page'
 import SignUp_Page from './Pages/Login_SignUp/SignUp_Page/Signup_Page'
 import VenuePage from './Pages/clientPages/VenuePage/VenuePage.jsx';
-import Layout from './Pages/Admin/Admin_Layout/Admin_Layout.jsx'
+import Admin_Layout from './Pages/Admin/Admin_Layout/Admin_Layout.jsx'
 import Admin_Dashboard from './Pages/Admin/Admin_Dashboard/Admin_Dashboard.jsx'
 import Manage_Vendors from './Pages/Admin/Manage_Vendors/Manage_Vendors.jsx'
 import Manage_Users from './Pages/Admin/Manage_Users/Manage_Users.jsx'
@@ -37,7 +37,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp_Page />} />
           <Route path='/setup-profile' element={<SetupProfilePage />} />
           <Route path='/' element={<LandingPage />} />
-          <Route path='/admin' element={<Admin_Dashboard />} />
+          
           <Route path='/Vendor_Profile_Page/:type/:id' element={<VendorProfileRouter />} />
           <Route path='/vendors' element={<Services1 />} />
           <Route path="/Chatbot" element={<Chatbot />} />
@@ -61,7 +61,14 @@ function App() {
 
         <Route path='/base' element={<BasePage/>}/>
 
-        <Route path='/booking-confirmation' element={<BookingConfirmation/>}/>
+        <Route path='/booking-confirmation' element={<BookingConfirmation/>}/>t
+
+          <Route path='/admin' element={<Admin_Layout />}>
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path='dashboard' element={<Admin_Dashboard />} />
+          <Route path='vendors' element={<Manage_Vendors />} />
+          <Route path='users' element={<Manage_Users />} />
+        </Route>
 
       </Routes>
     </BrowserRouter>

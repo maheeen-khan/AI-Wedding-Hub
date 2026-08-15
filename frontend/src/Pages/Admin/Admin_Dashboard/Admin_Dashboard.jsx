@@ -56,6 +56,7 @@ export default function Admin_Dashboard() {
 
       {/* Chart + Urgent Tasks */}
       <section className="mid-row">
+        {/* Chart Card */}
         <div className="card chart-card">
           <h2 className="card__title">Platform Activity</h2>
           <ResponsiveContainer width="100%" height={200}>
@@ -70,6 +71,7 @@ export default function Admin_Dashboard() {
           </ResponsiveContainer>
         </div>
 
+        {/* Urgent Tasks Card */}
         <div className="card urgent-card">
           <h2 className="card__title urgent-card__title">Urgent Tasks</h2>
 
@@ -93,13 +95,15 @@ export default function Admin_Dashboard() {
         </div>
       </section>
 
-      {/* Tables */}
+      {/* Pending Vendor Approvals Table */}
       <PendingVendorApprovalsTable
         vendors={PENDING_VENDORS}
         onApprove={(id) => console.log("Approve vendor", id)}
         onReject={(id) => console.log("Reject vendor", id)}
         onViewAll={() => setActiveNav("Manage Vendors")}
       />
+
+      {/* Recently Registered Users Table */}
       <RecentlyRegisteredUsersTable users={RECENT_USERS} />
     </>
   );
