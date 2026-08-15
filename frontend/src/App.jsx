@@ -17,11 +17,13 @@ import DecorPage from './Pages/clientPages/DecorPage/DecorPage.jsx';
 import MakeupPage from './Pages/clientPages/MakeupPage/MakeupPage.jsx';
 import CarRentalPage from './Pages/clientPages/CarRentalPage/CarRentalPage.jsx';
 import SetupProfilePage from './Pages/clientPages/SetupProfilePage/SetupProfilePage.jsx';
+import Chatbot from './Pages/Chatbot/chatbot.jsx';
 import BookingConfirmation from './Pages/SubPages/BookingConfirmationPage/BookingConfirmation.jsx';
+
 import VendorProfileRouter from './Pages/Vendor_Profile_Page/VendorProfileRouter.jsx';
 import Services1 from './Pages/clientPages/clientComponents/Services1.jsx';
-
-
+import Invitation from './Pages/Invitation/Invitation.jsx';
+import ContactUs from './Pages/clientPages/ContactUsPage/ContactUs.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -38,7 +40,11 @@ function App() {
           
           <Route path='/Vendor_Profile_Page/:type/:id' element={<VendorProfileRouter />} />
           <Route path='/vendors' element={<Services1 />} />
-         
+          <Route path="/Chatbot" element={<Chatbot />} />
+          <Route path="/Invitation" element={<Invitation />} />
+
+
+          <Route path='/contact-us' element={<BasePage mainheading={'Contact Us'} subhead={'We would love to hear from you! Please fill out the form below and we will get back to you as soon as possible.'}  recommendation='False'><ContactUs/></BasePage>} />
 
 
           <Route path='/venue' element={<BasePage mainheading={'Wedding Venues in Karachi'} subhead={'Showing venues matching your budget and guest count.'}><VenuePage /></BasePage>} />
@@ -66,8 +72,9 @@ function App() {
 
       </Routes>
     </BrowserRouter>
+
     </>
   )
 }
 
-export default App
+export default App;

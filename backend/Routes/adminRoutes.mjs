@@ -1,0 +1,1 @@
+// where all admin routes are written

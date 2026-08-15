@@ -4,7 +4,9 @@ import Services1 from '../clientComponents/Services1'
 import PopularDeals1 from '../clientComponents/PopularDeals1'
 import "./LandingPage.css"
 import Footer from '../clientComponents/Footer.jsx'
+import { useNavigate } from 'react-router-dom';
 const LandingPage = () => {
+  const navigate = useNavigate();
 
   const stats = [
     { value: "200+", label: "Verified Vendors" },
@@ -148,7 +150,7 @@ const LandingPage = () => {
      <Footer />
 
    {/* Floating action button */}
-      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI'>
+      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
         <i className="bi bi-stars"></i>
       </button>
 

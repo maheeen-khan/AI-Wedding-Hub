@@ -1,0 +1,204 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.contact-page{
+    display:flex;
+    min-height:100vh;
+}
+
+/* LEFT */
+
+.contact-left {
+    width: 50%;
+    position: relative;
+    /* Extra margin ensures the offset border doesn't get clipped by parent containers */
+    margin-top: 30px; 
+    margin-left: 30px; 
+}
+
+.contact-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px 0 20px 0;
+}
+
+/* Offset Border Box */
+.contact-left::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #D4AF37 ; 
+    background-color: transparent; 
+    
+    /* Shift the box UP and LEFT relative to the image */
+    top: -20px;
+    left: -20px;
+    
+    /* Place it in front of the image */
+    z-index: 1;
+
+    /* border-radius: 40px 0 40px 0; */
+    
+    /* Optional: Prevents the overlay box from blocking mouse interactions with the image underneath */
+    pointer-events: none; 
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(91,0,0,.55);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:70px;
+
+    color:white;
+}
+
+.overlay h1{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.overlay h2{
+    font-size:55px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.overlay p{
+    width:80%;
+    line-height:1.8;
+    font-size:17px;
+}
+
+/* RIGHT */
+
+.contact-right{
+    width:50%;
+    background:linear-gradient(90deg, #fff, #FFF8F4);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:50px;
+}
+
+.contact-card{
+    width:100%;
+    max-width:500px;
+}
+
+.contact-card h2{
+    color:#7b0000;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.contact-card p{
+    color:#777;
+    margin-bottom:30px;
+}
+
+.contact-card form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.contact-card input,
+.contact-card textarea{
+
+    width:100%;
+    padding:15px;
+
+    border:1px solid #ddd;
+    border-radius:10px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus{
+
+    border-color:#7b0000;
+}
+
+.contact-card textarea{
+
+    resize:none;
+}
+
+.contact-card button{
+
+    height:55px;
+
+    background:#7b0000;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.contact-card button:hover{
+
+    background:#5b0000;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.contact-page{
+
+    flex-direction:column;
+}
+
+.contact-left,
+.contact-right{
+
+    width:100%;
+}
+
+.contact-left{
+
+    height:500px;
+}
+
+.overlay{
+
+    padding:40px;
+}
+
+.overlay h2{
+
+    font-size:38px;
+}
+
+.contact-right{
+
+    padding:40px 25px;
+}
+
+}

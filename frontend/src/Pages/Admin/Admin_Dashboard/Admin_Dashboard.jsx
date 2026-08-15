@@ -7,8 +7,8 @@ import {
 import Sidebar from "../../../components/Admin_Component/Sidebar/Sidebar";
 import Navbar from "../../../components/Admin_Component/Navbar/Navbar";
 import Cards from "../../../components/Admin_Component/Cards/Cards";
-import PendingVendorApprovalsTable from "../../../components/Admin_Component/Table/Pending_Vendor_Approvals_Table/Pending_Approvals_Table"
-import RecentlyRegisteredUsersTable from "../../../components/Admin_Component/Table/Recently_Registered_Users_Table/Recently_Registered_Users_Table"
+import PendingVendorApprovalsTable from "../../../components/Admin_Component/Table/Pending_Vendor_Approvals_Table/Pending_Approvals_Table";
+import RecentlyRegisteredUsersTable from "../../../components/Admin_Component/Table/Recently_Registered_Users_Table/Recently_Registered_Users_Table";
 import "./Admin_Dashboard.css";
 
 /* ── Static sample data ── */

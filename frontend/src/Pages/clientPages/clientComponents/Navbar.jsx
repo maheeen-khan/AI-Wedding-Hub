@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchModal from "./SearchModal.jsx";
 import "../LandingPage/LandingPage.css";
 const Navbar = () => {
     return (
+
+        <>
+            <SearchModal />
+
+       
         <nav className="navbar navbar-expand-lg custom-navbar">
             <div className="container">
                 {/* Logo */}
@@ -36,19 +42,19 @@ const Navbar = () => {
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link  " href="/planner">
+                            <a className="nav-link  " href="/Chatbot">
                                 AI Planner
                             </a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link  " href="/invitations">
+                            <a className="nav-link  " href="/Invitation">
                                 Invitations
                             </a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link  " href="/contact">
+                            <a className="nav-link  " href="/contact-us">
                                 Contact Us
                             </a>
                         </li>
@@ -56,7 +62,7 @@ const Navbar = () => {
 
                     {/* Right Side */}
                     <div className="d-flex justify-content-around align-items-center gap-3">
-                        <i className="bi bi-search search-icon"></i>
+                        <i className="bi bi-search search-icon" data-bs-toggle="modal" data-bs-target="#searchModal"></i> <SearchModal />
 
                         <a className="login-link" href="/login">
                             Login
@@ -69,6 +75,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
+         </>
     );
 };
 

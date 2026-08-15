@@ -1,0 +1,435 @@
+/* ===== Base ===== */
+.zoya-page {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #faf3ee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #3a2c28;
+}
+
+/* ===== Navbar ===== */
+.zoya-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background: #fff;
+  border-bottom: 1px solid #eee0d8;
+}
+
+.zoya-logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #7a1f2b;
+}
+
+.zoya-nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.zoya-nav-links a {
+  text-decoration: none;
+  color: #3a2c28;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.zoya-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zoya-user-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.zoya-user-names {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.zoya-user-sub {
+  font-size: 11px;
+  color: #9c8b83;
+}
+
+.zoya-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #d8b8a8;
+}
+
+/* ===== Main ===== */
+.zoya-main {
+  flex: 1;
+  padding: 40px 60px;
+}
+
+.zoya-eyebrow {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: #b08d6a;
+  font-weight: 600;
+  margin: 0;
+}
+
+.zoya-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  color: #7a1f2b;
+  margin: 6px 0 24px;
+}
+
+.zoya-panel {
+  display: flex;
+  gap: 24px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #f0e2d8;
+  min-height: 560px;
+}
+
+/* ===== Sidebar ===== */
+.zoya-sidebar {
+  width: 260px;
+  background: #fdf8f4;
+  border-right: 1px solid #f0e2d8;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.zoya-new-chat {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e3cdbc;
+  background: #fff;
+  color: #7a1f2b;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.zoya-new-chat:hover {
+  background: #f7ece4;
+}
+
+.zoya-sidebar-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #a89489;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.zoya-chat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zoya-chat-item {
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.zoya-chat-item:hover {
+  background: #f4e6dc;
+}
+
+.zoya-chat-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+
+.zoya-chat-time {
+  font-size: 11px;
+  color: #a89489;
+  margin: 0;
+}
+
+/* ===== Chat Window ===== */
+.zoya-chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.zoya-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid #f0e2d8;
+}
+
+.zoya-chat-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zoya-bot-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #7a1f2b;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.zoya-bot-icon.small {
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.zoya-bot-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.zoya-bot-status {
+  font-size: 11px;
+  color: #8fae8a;
+  margin: 0;
+}
+
+.zoya-chat-header-right {
+  display: flex;
+  gap: 12px;
+}
+
+.zoya-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #7a5c50;
+}
+
+/* ===== Messages ===== */
+.zoya-messages {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.zoya-message {
+  display: flex;
+  gap: 10px;
+  max-width: 70%;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.zoya-message p {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+.zoya-message-bot p {
+  background: #f7ece4;
+  border-top-left-radius: 2px;
+}
+
+.zoya-message-user {
+  align-self: flex-end;
+}
+
+.zoya-message-user p {
+  background: #7a1f2b;
+  color: #fff;
+  border-top-right-radius: 2px;
+}
+
+/* ===== Vendor Cards ===== */
+.zoya-vendor-cards {
+  display: flex;
+  gap: 16px;
+  margin-left: 38px;
+}
+
+.zoya-vendor-card {
+  width: 220px;
+  border: 1px solid #f0e2d8;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.zoya-vendor-image {
+  height: 100px;
+  background-color: #e8c9b8;
+  background-image: linear-gradient(135deg, #e8c9b8, #d8a888);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.zoya-vendor-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #7a1f2b;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.zoya-vendor-info {
+  padding: 12px;
+}
+
+.zoya-vendor-name {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.zoya-vendor-price {
+  font-size: 11px;
+  color: #8a7268;
+  margin: 0 0 10px;
+}
+
+.zoya-view-profile {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  background: #7a1f2b;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.zoya-view-profile:hover {
+  background: #611722;
+}
+
+/* ===== Quick Actions ===== */
+.zoya-quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: 38px;
+}
+
+.zoya-quick-btn {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #e3cdbc;
+  background: #fff;
+  font-size: 12px;
+  color: #7a1f2b;
+  cursor: pointer;
+}
+
+.zoya-quick-btn:hover {
+  background: #f7ece4;
+}
+
+/* ===== Input Bar ===== */
+.zoya-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-top: 1px solid #f0e2d8;
+}
+
+.zoya-input-bar input {
+  flex: 1;
+  border: 1px solid #e3cdbc;
+  border-radius: 20px;
+  padding: 10px 16px;
+  font-size: 13px;
+  outline: none;
+}
+
+.zoya-send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #d9a441;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.zoya-send-btn:hover {
+  background: #c4922e;
+}
+
+/* ===== Footer ===== */
+.zoya-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  border-top: 1px solid #f0e2d8;
+  background: #fff;
+  font-size: 12px;
+  color: #9c8b83;
+}
+
+.zoya-footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.zoya-footer-links a {
+  color: #9c8b83;
+  text-decoration: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .zoya-panel {
+    flex-direction: column;
+  }
+  .zoya-sidebar {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid #f0e2d8;
+  }
+  .zoya-vendor-cards {
+    flex-wrap: wrap;
+    margin-left: 0;
+  }
+  .zoya-quick-actions {
+    margin-left: 0;
+  }
+}
