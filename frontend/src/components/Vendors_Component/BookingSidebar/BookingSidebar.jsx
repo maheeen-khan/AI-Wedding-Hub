@@ -1,22 +1,11 @@
-// BookingSidebar.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Calendar, Users2, MessageCircle, ShieldCheck, CalendarCheck } from "lucide-react";
 import "./BookingSidebar.css";
 
-/**
- * Flexible booking sidebar driven by `config.fields`, since each vendor
- * type asks for slightly different inputs:
- *   - venue: package select, date, guest count
- *   - catering: package select, date, guest count, address
- *   - photography: package select, event-type checkboxes, date, notes textarea
- *   - makeup: package select, date, time
- *   - decor: decor-type button group, decor-style chips, date, venue input
- *   - car rental: car select, date range, pickup location
- *
- * Supported field types: "select", "date", "number", "text", "textarea",
- * "checkbox-group", "button-group", "chip-group"
- */
 export default function BookingSidebar({ booking, config, onBookNow }) {
+  const navigate = useNavigate();
+
   const initialState = Object.fromEntries(
     (config.fields || []).map((f) => [
       f.name,
@@ -40,6 +29,7 @@ export default function BookingSidebar({ booking, config, onBookNow }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onBookNow?.(values);
+    navigate("/booking-confirmation");
   };
 
   return (
