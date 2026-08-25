@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login_Page.css";
+import { loginUser } from "../../../api/AuthApi.jsx";
 
 const Logo = () => (
   <svg width="48" height="60" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,8 +68,42 @@ export default function Login_Page() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [activeTab, setActiveTab] = useState("login");
+  const [error, setError] = useState("");
 
-  return (
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const data = await loginUser({
+        email: email,
+        password: password,
+      });
+
+      if (!data.success) {
+        setError(data.message);
+        return;
+      }
+
+      console.log("Login successful:", data);
+
+      // Save JWT token
+      localStorage.setItem("token", data.data.token);
+
+      setTimeout(() => {
+        navigate("/venue");
+      }, 3000);
+
+    } catch (error) {
+      const message =
+        error.response?.data?.message || "Login failed";
+
+      setError(message);
+    }
+  }
+
+
+return (
+  <form onSubmit={handleLogin}>
     <div className="ww-root">
       <div className="ww-page">
 
@@ -155,11 +190,13 @@ export default function Login_Page() {
               </div>
             </div>
 
-            <button className="ww-login-btn" type="button" onClick={() => {
-              setTimeout(() => {
-                navigate("/setup-profile");
-              }, 2000);
-            }}>Login</button>
+            {error && (
+              <p className="text-danger small fst-italic mt-2">
+                {error}
+              </p>
+            )}
+
+            <button className="ww-login-btn" type="submit" >Login</button>
 
             <div className="ww-or-row">
               <div className="ww-or-line" />
@@ -191,5 +228,6 @@ export default function Login_Page() {
         </div>
       </div>
     </div>
-  );
-}
+  </form>
+);
+};

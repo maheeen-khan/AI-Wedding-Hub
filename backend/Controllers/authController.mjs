@@ -7,7 +7,7 @@ const JWT_EXPIRES = process.env.JWT_EXPIRES_IN || '7d';
 
 export const signup = async (req, res) => {
   try {
-    const { full_name, email, password, phone, role = 'client' } = req.body;
+    const { full_name, email, password, role = 'client' } = req.body;
 
     if (!full_name || !email || !password || password.length < 6) {
       return res.status(400).json({ message: 'Valid name, email, and 6+ char password required.' });
@@ -17,7 +17,7 @@ export const signup = async (req, res) => {
     if (exists) return res.status(409).json({ message: 'Email already registered.' });
 
     const hashed = await bcrypt.hash(password, 12);
-    const user = await createUser({ full_name, email, password: hashed, phone, role });
+    const user = await createUser({ full_name, email, password: hashed, role });
 
     const token = jwt.sign({ id: user.id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: JWT_EXPIRES });
 
@@ -56,7 +56,7 @@ export const login = async (req, res) => {
     res.json({
       message: 'Login successful',
       token,
-      user: { id: user.id, full_name: user.full_name, email: user.email, role: user.role, phone: user.phone },
+      user: { id: user.id, full_name: user.full_name, email: user.email, role: user.role },
     });
   } catch (err) {
     console.error('Login error:', err);
