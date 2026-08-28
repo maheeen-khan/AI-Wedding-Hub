@@ -72,6 +72,7 @@ export default function Login_Page() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    localStorage.removeItem("token"); // Clear any existing token
 
     try {
       const data = await loginUser({
@@ -88,9 +89,10 @@ export default function Login_Page() {
 
       // Save JWT token
       localStorage.setItem("token", data.data.token);
-
+      console.log("Token saved to localStorage:", localStorage.getItem("token"));
+      
       setTimeout(() => {
-        navigate("/venue");
+        navigate("/setup-profile");
       }, 3000);
 
     } catch (error) {
