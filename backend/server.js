@@ -6,8 +6,7 @@ import 'dotenv/config';
 import authRoutes from './Routes/signup&login.mjs';
 import profileRoutes from './Routes/profile.mjs';
 import eventRoutes from './Routes/events.mjs';
-
-// dotenv.config();
+import vendorRoutes from './Routes/vendorRoutes.mjs';
 
 const app = express();
 
@@ -23,6 +22,7 @@ app.get('/api/health', (req, res) => res.json({ status: 'OK' }));
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/events', eventRoutes);
+app.use('/api/vendors', vendorRoutes);
 
 app.use((req, res) => res.status(404).json({ message: 'Route not found.' }));
 app.use((err, req, res, next) => {

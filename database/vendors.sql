@@ -106,3 +106,74 @@ CREATE TABLE event_addons (
   FOREIGN KEY (vendor_id)
     REFERENCES vendors(id) ON DELETE CASCADE
 );
+
+
+CREATE TABLE photography_details (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  vendor_id INT NOT NULL UNIQUE,
+  coverage_type VARCHAR(100),
+  delivery_days INT,
+  team_size INT,
+  equipment VARCHAR(200),
+  FOREIGN KEY (vendor_id)
+    REFERENCES vendors(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE decor_details (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  vendor_id INT NOT NULL UNIQUE,
+  decor_type VARCHAR(100),
+  theme VARCHAR(100),
+  FOREIGN KEY (vendor_id)
+    REFERENCES vendors(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE makeup_details (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  vendor_id INT NOT NULL UNIQUE,
+  artist_type VARCHAR(100),
+  experience_years INT,
+  FOREIGN KEY (vendor_id)
+    REFERENCES vendors(id) ON DELETE CASCADE
+);
+
+CREATE TABLE car_rental_details (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  vendor_id INT NOT NULL UNIQUE,
+  car_model VARCHAR(100),
+  car_type VARCHAR(100),
+  fuel_type VARCHAR(50),
+  with_driver BOOLEAN DEFAULT TRUE,
+  FOREIGN KEY (vendor_id)
+    REFERENCES vendors(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE faqs (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  vendor_id INT NOT NULL,
+  question TEXT NOT NULL,
+  answer TEXT NOT NULL,
+  sort_order INT DEFAULT 0,
+  FOREIGN KEY (vendor_id)
+    REFERENCES vendors(id) ON DELETE CASCADE
+);
+
+CREATE TABLE reviews (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  vendor_id INT NOT NULL,
+  user_id INT,
+  reviewer_name VARCHAR(100),
+  event_type VARCHAR(100),
+  rating INT CHECK (rating BETWEEN 1 AND 5),
+  comment TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (vendor_id)
+    REFERENCES vendors(id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id)
+    REFERENCES users(id) ON DELETE SET NULL
+);
+
+
