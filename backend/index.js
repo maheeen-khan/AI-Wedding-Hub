@@ -10,19 +10,11 @@ app.use(cors());
 app.use(express.json());
 
 // Simple test query
-app.get('/api/test', async (req, res) => {
-  try {
-    const [rows] = await db.query('SELECT * FROM test_users');
-    res.json({ 
-      success: true, 
-      data: rows 
-    });
-  } catch (error) {
-    res.status(500).json({ 
-      success: false, 
-      message: error.message 
-    });
-  }
+app.use('/api/vendors', vendorRoutes);
+
+// Test route
+app.get('/', (req, res) => {
+  res.json({ message: '✅ WeddingWala API running' });
 });
 
 const PORT = process.env.PORT || 5000;

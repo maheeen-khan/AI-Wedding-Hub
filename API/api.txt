@@ -1,0 +1,86 @@
+
+## Vendors
+```
+GET    /api/vendors
+GET    /api/vendors?category=venue
+GET    /api/vendors?city=Karachi
+GET    /api/vendors?is_recommended=true
+GET    /api/vendors?search=marquee
+GET    /api/vendors/:id
+POST   /api/vendors
+PUT    /api/vendors/:id
+DELETE /api/vendors/:id
+```
+
+## Category-Scoped Vendors
+```
+GET /api/vendors/venue/:id
+GET /api/vendors/catering/:id
+GET /api/vendors/photography/:id
+GET /api/vendors/decor/:id
+GET /api/vendors/makeup/:id
+GET /api/vendors/car-rental/:id
+GET /api/vendors/category/:category
+```
+
+## Vendor Images
+```
+GET    /api/vendors/:id/images
+POST   /api/vendors/:id/images
+PUT    /api/vendors/:id/images/:imageId
+DELETE /api/vendors/:id/images/:imageId
+```
+
+## Vendor Tags
+```
+GET    /api/vendors/:id/tags
+POST   /api/vendors/:id/tags
+DELETE /api/vendors/:id/tags/:tagId
+```
+
+## Vendor Amenities
+```
+GET    /api/vendors/:id/amenities
+POST   /api/vendors/:id/amenities
+DELETE /api/vendors/:id/amenities/:amenityId
+```
+
+## Vendor Details
+```
+GET /api/vendors/:id/details
+PUT /api/vendors/:id/details
+```
+
+## Menu Packages (Catering)
+```
+GET    /api/vendors/:id/menu-packages
+POST   /api/vendors/:id/menu-packages
+PUT    /api/vendors/:id/menu-packages/:packageId
+DELETE /api/vendors/:id/menu-packages/:packageId
+```
+
+## Event Add-ons (Catering)
+```
+GET    /api/vendors/:id/addons
+POST   /api/vendors/:id/addons
+PUT    /api/vendors/:id/addons/:addonId
+DELETE /api/vendors/:id/addons/:addonId
+```
+
+## FAQs
+```
+GET    /api/vendors/:id/faqs
+POST   /api/vendors/:id/faqs
+PUT    /api/vendors/:id/faqs/:faqId
+DELETE /api/vendors/:id/faqs/:faqId
+```
+
+## Reviews
+```
+GET    /api/vendors/:id/reviews
+POST   /api/vendors/:id/reviews
+GET    /api/reviews/:id
+PUT    /api/reviews/:id
+DELETE /api/reviews/:id
+```
+
