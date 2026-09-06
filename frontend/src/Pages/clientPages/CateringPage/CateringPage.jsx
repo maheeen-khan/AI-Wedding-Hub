@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import CateringCard from '../clientComponents/CateringCard.jsx';
 import catering1 from '../../../assets/catering1.png';
 import catering2 from '../../../assets/catering2.png';
@@ -7,6 +7,8 @@ import venueDivider from '../../../assets/venue-divider.png';
 import { useNavigate } from 'react-router-dom';
 import banquet4 from '../../../assets/banquet4.png';
 // import './VenuePage.css';
+import { getCatering } from '../../../api/VendorsApi.jsx';
+
 
 const recommendedCaterers = [
   {
@@ -139,9 +141,44 @@ const ITEMS_PER_PAGE = 9;
 
 const CateringPage = () => {
   const navigate = useNavigate();
+
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(allCaterers.length / ITEMS_PER_PAGE);
-  const paginatedCaterers = allCaterers.slice(
+  const [caterings, setCaterings] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+      const fetchCatering = async () => {
+        try {
+          setLoading(true);
+          const cateringsData = await getCatering();
+  
+  
+          console.log("Complete API response:", cateringsData);
+          console.log("Catering data:", cateringsData.data);
+  
+          setCaterings(cateringsData.data);
+        } catch (err) {
+          setError("Failed to fetch caterings.");
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchCatering();
+    }, []);
+  
+    if (loading) {
+      return <h3>Loading caterings...</h3>;
+    }
+  
+    if (error) {
+      return <h3>{error}</h3>;
+    }
+
+    
+  const totalPages = Math.ceil(caterings.all.length / ITEMS_PER_PAGE);
+  const paginatedCaterers = caterings.all.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
@@ -160,7 +197,7 @@ const CateringPage = () => {
           
          
           <div className="row g-3">
-            {recommendedCaterers.map((caterer) => (
+            {caterings.recommended.slice(0,3).map((caterer) => (
               <div className="col-12 col-md-6 col-lg-4" key={caterer.id}>
                 <CateringCard caterer={caterer} recommended={true} />
               </div>

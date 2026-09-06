@@ -24,7 +24,7 @@ const VenueCard = ({ venue, recommended = false }) => {
           </div> */}
           <div className="meta-row">
             <span className="meta-label">Starting at</span>
-            <span className="meta-value meta-starting">{venue.starting}</span>
+            <span className="meta-value meta-starting">{venue.price_label}</span>
           </div>
         </div>
         <div className="venue-rating">
