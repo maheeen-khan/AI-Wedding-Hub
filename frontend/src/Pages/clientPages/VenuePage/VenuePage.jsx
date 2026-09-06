@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import VenueCard from '../clientComponents/VenueCard.jsx';
 import banquet1 from '../../../assets/banquet1.png';
 import banquet2 from '../../../assets/banquet2.png';
@@ -6,6 +6,7 @@ import banquet3 from '../../../assets/banquet3.png';
 import venueDivider from '../../../assets/venue-divider.png';
 import banquet4 from '../../../assets/banquet4.png';
 import { useNavigate } from 'react-router-dom';
+import { getVenues } from '../../../api/VendorsApi.jsx';
 import './VenuePage.css';
 
 const recommendedVenues = [
@@ -132,7 +133,7 @@ const allVenues = [
     rating: "4.8",
     image: banquet2,
   },
-  
+
   {
     id: 13,
     name: "Infinity Lawn",
@@ -143,7 +144,7 @@ const allVenues = [
     rating: "4.8",
     image: banquet1,
   },
-   {
+  {
     id: 14,
     name: "Metropolitan Marquee",
     location: "North Nazimabad",
@@ -153,7 +154,7 @@ const allVenues = [
     rating: "4.5",
     image: banquet3,
   },
-   {
+  {
     id: 15,
     name: "Metropolitan Marquee",
     location: "North Nazimabad",
@@ -170,9 +171,45 @@ const ITEMS_PER_PAGE = 9;
 
 const VenuePage = () => {
   const navigate = useNavigate();
+
+
+  const [venues, setVenues] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(allVenues.length / ITEMS_PER_PAGE);
-  const paginatedVenues = allVenues.slice(
+
+  useEffect(() => {
+    const fetchVenues = async () => {
+      try {
+        setLoading(true);
+        const venuesData = await getVenues();
+
+
+        console.log("Complete API response:", venuesData);
+        console.log("Venue data:", venuesData.data);
+
+        setVenues(venuesData.data);
+      } catch (err) {
+        setError("Failed to fetch venues.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVenues();
+  }, []);
+
+  if (loading) {
+    return <h3>Loading venues...</h3>;
+  }
+
+  if (error) {
+    return <h3>{error}</h3>;
+  }
+
+
+  const totalPages = Math.ceil(venues.all.length / ITEMS_PER_PAGE);
+  const paginatedVenues = venues.all.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
@@ -180,77 +217,77 @@ const VenuePage = () => {
   return (
     <>
 
-       <div className="venues-page">
- 
- 
-      <div className="container-xl pt-0 pb-3">
- 
-        {/* ── Recommended Section ── */}
-        <div className="my-5">
-          
-          <div className="row g-3">
-            {recommendedVenues.map((venue) => (
-              <div className="col-12 col-md-6 col-lg-4" key={venue.id}>
-                <VenueCard venue={venue} recommended={true} />
-              </div>
-            ))}
+      <div className="venues-page">
+
+
+        <div className="container-xl pt-0 pb-3">
+
+          {/* ── Recommended Section ── */}
+          <div className="my-5">
+
+            <div className="row g-3">
+              {venues.recommended.slice(0, 3).map((venue) => (
+                <div className="col-12 col-md-6 col-lg-4" key={venue.id}>
+                  <VenueCard venue={venue} recommended={true} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
- 
-        {/* ── Divider ── */}
-        <div className="d-flex align-items-center justify-content-center my-5">
-          <img src={venueDivider} alt="Divider" className='img-fluid venue-divider' width={300}/>
-        </div>
- 
-        {/* ── All Venues Section ── */}
-        <div>
-          <h5 className="section-heading mb-4">All Venues in Karachi</h5>
-          <div className="row g-3">
-            {paginatedVenues.map((venue) => (
-              <div className="col-12 col-sm-6 col-lg-4" key={venue.id}>
-                <VenueCard venue={venue} recommended={false} />
-              </div>
-            ))}
+
+          {/* ── Divider ── */}
+          <div className="d-flex align-items-center justify-content-center my-5">
+            <img src={venueDivider} alt="Divider" className='img-fluid venue-divider' width={300} />
           </div>
- 
-          {/* ── Pagination ── */}
-          <div className="d-flex justify-content-center align-items-center gap-2 mt-5 pt-5">
-            <button
-              className="page-btn"
-              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-              disabled={currentPage === 1}
-            >
-              Previous
-            </button>
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+
+          {/* ── All Venues Section ── */}
+          <div>
+            <h5 className="section-heading mb-4">All Venues in Karachi</h5>
+            <div className="row g-3">
+              {paginatedVenues.map((venue) => (
+                <div className="col-12 col-sm-6 col-lg-4" key={venue.id}>
+                  <VenueCard venue={venue} recommended={false} />
+                </div>
+              ))}
+            </div>
+
+            {/* ── Pagination ── */}
+            <div className="d-flex justify-content-center align-items-center gap-2 mt-5 pt-5">
               <button
-                key={p}
-                className={`page-num ${currentPage === p ? "page-active" : ""}`}
-                onClick={() => setCurrentPage(p)}
+                className="page-btn"
+                onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+                disabled={currentPage === 1}
               >
-                {p}
+                Previous
               </button>
-            ))}
-            <button
-              className="page-btn"
-              onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+                <button
+                  key={p}
+                  className={`page-num ${currentPage === p ? "page-active" : ""}`}
+                  onClick={() => setCurrentPage(p)}
+                >
+                  {p}
+                </button>
+              ))}
+              <button
+                className="page-btn"
+                onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
+            </div>
           </div>
+
         </div>
- 
+
+        {/* Floating action button */}
+        <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
+          <i className="bi bi-stars"></i>
+        </button>
       </div>
 
-      {/* Floating action button */}
-      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
-        <i className="bi bi-stars"></i>
-      </button>
-    </div>
 
-    
-  
+
     </>
   )
 }

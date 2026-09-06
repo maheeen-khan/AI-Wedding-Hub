@@ -6,7 +6,7 @@ const CateringCard = ({caterer, recommended = false, type = "catering" }) => {
   return (
     <div className="food-card">
       <div className="venue-img-wrap">
-        <img src={caterer.image} alt={caterer.name} className="venue-img" />
+        <img src={caterer.image_url} alt={caterer.name} className="venue-img" />
         {recommended && (
           <span className="recommended-badge">Recommended</span>
         )}
@@ -39,7 +39,7 @@ const CateringCard = ({caterer, recommended = false, type = "catering" }) => {
           <div className="food-card-footer d-flex  justify-content-between gap-2 align-items-center px-2">
             <div className="price-section">
               <p className="label">Starting from</p>
-              <h6>{caterer.starting}</h6>
+              <h6>{caterer.price_min}</h6>
             </div>
 
 

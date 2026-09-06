@@ -1,23 +1,17 @@
 USE weddingwala;
 
 INSERT INTO vendors 
-(name, category, location, city, about, price_min, price_max, price_label, rating, review_count, is_verified, is_recommended) 
+(name, category, location, capacity, about, price_min, price_max, price_label, rating, review_count, is_verified, is_recommended) 
 VALUES
 
-('Sensational Marquee', 'venue', 'North Nazimabad', 'Karachi',
-'Discover the epitome of elegance at Sensational Marquee, Karachis premier destination for luxury celebrations.',
-500, 1180, 'PKR 500/head', 4.7, 96, TRUE, TRUE),
+('Sensational Marquee', 'venue', 'North Nazimabad', '300-1000', 'Discover the epitome of elegance at Sensational Marquee, Karachis premier destination for luxury celebrations.', 500, 1180, 'PKR 500/head', 4.7, 96, TRUE, TRUE),
 
-('Royal Marquee', 'venue', 'Gulshan-e-Iqbal', 'Karachi',
-'Royal Marquee offers a stunning blend of modern amenities and traditional charm for your special day.',
-800, 1500, 'PKR 800/head', 4.5, 78, TRUE, TRUE),
+('Royal Marquee', 'venue', 'Gulshan-e-Iqbal', '300-1000', 'Royal Marquee offers a stunning blend of modern amenities and traditional charm for your special day.', 800, 1500, 'PKR 800/head', 4.5, 78, TRUE, TRUE),
 
-('Grand Palace', 'venue', 'DHA Phase 6', 'Karachi',
-'Grand Palace is the most prestigious wedding venue in Karachi offering world class facilities.',
-1000, 2000, 'PKR 1000/head', 4.8, 120, TRUE, FALSE);
+('Grand Palace', 'venue', 'DHA Phase 6', '400-800', 'Grand Palace is the most prestigious wedding venue in Karachi offering world class facilities.', 1000, 2000, 'PKR 1000/head', 4.8, 120, TRUE, FALSE);
 
 
---INSERT IMAGES
+-- INSERT IMAGES
 
 -- Sensational Marquee images (vendor_id = 1)
 INSERT INTO vendor_images (vendor_id, image_url, is_main, sort_order)
@@ -42,7 +36,7 @@ VALUES
 
 
 
---INSERT TAGS
+-- INSERT TAGS
 
 -- Sensational Marquee tags (vendor_id = 1)
 INSERT INTO vendor_tags (vendor_id, tag)
@@ -60,7 +54,7 @@ VALUES
 
 
 
---INSERT AMENITIES
+-- INSERT AMENITIES
 
 -- Sensational Marquee amenities (vendor_id = 1)
 INSERT INTO vendor_amenities (vendor_id, amenity)
@@ -91,7 +85,7 @@ VALUES
 
 ----------------------------------------------------------------------------
 
---Insert ALL Vendors (All 6 Categories)
+-- Insert ALL Vendors (All 6 Categories)
 
 USE weddingwala;
 
@@ -168,7 +162,7 @@ VALUES
 
 --------------------------------------------------------------------------
 
---Insert Images for All New Vendors
+-- Insert Images for All New Vendors
 
 INSERT INTO vendor_images (vendor_id, image_url, is_main, sort_order)
 VALUES
@@ -252,7 +246,7 @@ VALUES
 
 
 --------------------------------------------------------------------------------------
---Insert Vendor Tags for All
+-- Insert Vendor Tags for All
 
 INSERT INTO vendor_tags (vendor_id, tag)
 VALUES
@@ -285,7 +279,7 @@ VALUES
 
 -------------------------------------------------------------------------------
 
---Insert Vendor Amenities for All
+-- Insert Vendor Amenities for All
 
 INSERT INTO vendor_amenities (vendor_id, amenity)
 VALUES
@@ -370,7 +364,7 @@ VALUES
 
 
 --------------------------------------------------------------------------------------
---Insert Category Specific Details
+-- Insert Category Specific Details
 
 -- VENUE DETAILS (vendor_id 1, 2, 3)
 INSERT INTO venue_details 
@@ -424,7 +418,7 @@ VALUES
 
 
 -------------------------------------------------------------------------------------
---Insert Menu Packages and Event Addons
+-- Insert Menu Packages and Event Addons
 
 -- MENU PACKAGES (catering vendors 4, 5, 6)
 INSERT INTO menu_packages 
@@ -468,7 +462,7 @@ VALUES
 
 
 -------------------------------------------------------------------------------------
---Insert FAQs for All Vendor
+-- Insert FAQs for All Vendor
 
 INSERT INTO faqs (vendor_id, question, answer, sort_order)
 VALUES
@@ -560,7 +554,7 @@ VALUES
 
 -------------------------------------------------------------------------------------
 
---Insert Reviews for All Vendors
+-- Insert Reviews for All Vendors
 
 INSERT INTO reviews 
 (vendor_id, reviewer_name, event_type, rating, comment)

@@ -22,20 +22,50 @@ import {
 export const getVendors = async (req, res) => {
   try {
     const { category } = req.params;
-    const id = parseInt(req.params.id);
 
+    // Get all vendors
     const vendors = await getVendorsByCategory(category);
+
+    // Get recommended vendors
     const recommended = await getRecommendedVendors(category);
+
+    // Add main image to each vendor
+    const addMainImage = async (vendor) => {
+      const images = await getVendorImages(vendor.id);
+
+      const mainImage =
+        images.find((image) => image.is_main === true || image.is_main === 1) ||
+        images[0];
+
+      return {
+        ...vendor,
+        image_url: mainImage?.image_url || null,
+      };
+    };
+
+    const allWithImages = await Promise.all(
+      vendors.map(addMainImage)
+    );
+
+    const recommendedWithImages = await Promise.all(
+      recommended.map(addMainImage)
+    );
 
     res.json({
       success: true,
       data: {
-        recommended,
-        all: vendors,
-      }
+        recommended: recommendedWithImages,
+        all: allWithImages,
+      },
     });
+
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    console.error("Error fetching vendors:", error);
+
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
 
