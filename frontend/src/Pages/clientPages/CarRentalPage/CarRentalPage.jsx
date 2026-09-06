@@ -14,7 +14,7 @@ const recommendedCars = [
     starting: "PKR 35,000+",
     rating: "4.9",
     image: car1,
-    events: ["Luxury", "12 Cars Available"]
+    extra: ["Luxury", "12 Cars Available"]
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const recommendedCars = [
     starting: "PKR 45,000+",
     rating: "4.8",
     image: car1,
-    events: ["Vintage", "5 Cars Available"]
+    extra: ["Vintage", "5 Cars Available"]
   },
   {
     id: 3,
