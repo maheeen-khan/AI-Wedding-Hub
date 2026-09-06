@@ -1,10 +1,11 @@
-import React,{useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import CateringCard from '../clientComponents/CateringCard.jsx';
 import makeup1 from '../../../assets/makeup1.png';
 import makeup2 from '../../../assets/makeup2.png';
 import makeup3 from '../../../assets/makeup3.png';
 import { useNavigate } from 'react-router-dom';
 import venueDivider from '../../../assets/venue-divider.png'
+import { getMakeup } from '../../../api/VendorsApi.jsx';
 
 const recommendedMakeupArtists = [
   {
@@ -152,80 +153,112 @@ const ITEMS_PER_PAGE = 9;
 
 const MakeupPage = () => {
   const navigate = useNavigate();
-    const [currentPage, setCurrentPage] = useState(1);
-        const totalPages = Math.ceil(allMakeupArtists.length / ITEMS_PER_PAGE);
-        const paginatedMakeupArtist = allMakeupArtists.slice(
-            (currentPage - 1) * ITEMS_PER_PAGE,
-            currentPage * ITEMS_PER_PAGE
-        );
+
+  const [makeup, setMakeup] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    const fetchMakeup = async () => {
+      setLoading(true); 
+
+      try {
+        const makeupData = await getMakeup();
+        console.log("Complete API response:", makeupData);
+        console.log("Makeup data:", makeupData.data);
+        setMakeup(makeupData.data);
+      } catch (err) {
+        setError("Failed to fetch makeup data");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMakeup();
+  }, []);
+
+  if (loading) {
+    return <h3>Loading makeup artists...</h3>;
+  }
+
+  if (error) {
+    return <h3>{error}</h3>;
+  }
+
+  const totalPages = Math.ceil(makeup.all.length / ITEMS_PER_PAGE);
+  const paginatedMakeupArtist = makeup.all.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
 
   return (
     <>
-     <div className="container-xl py-4">
-    
-                        {/* ── Recommended Section ── */}
-                        <div className="my-4">
-                           
-                           
-                            <div className="row g-3">
-                                {recommendedMakeupArtists.map((decorator) => (
-                                    <div className="col-12 col-md-6 col-lg-4" key={decorator.id}>
-                                        <CateringCard caterer={decorator} recommended={true} eventlabel={false} type="makeup" />
+      <div className="container-xl py-4">
 
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-    
-                        {/* ── Divider ── */}
-                        <div className="d-flex align-items-center justify-content-center my-5">
-                            <img src={venueDivider} alt="Divider" className='img-fluid venue-divider' width={300}/>
-                        </div>
-    
-                        {/* ── All Venues Section ── */}
-                        <div>
-                            <h5 className="section-heading mb-4">All Makeup Artists in Karachi</h5>
-                            <div className="row g-3">
-                                {paginatedMakeupArtist.map((artist) => (
-                                    <div className="col-12 col-sm-6 col-lg-4" key={artist.id}>
-                                        <CateringCard caterer={artist} recommended={false} events={false} type='makeup' />
-                                    </div>
-                                ))}
-                            </div>
-                            
-                            {/* ── Pagination ── */}
-                    <div className="d-flex justify-content-center align-items-center gap-2 mt-5 py-5">
-                        <button
-                            className="page-btn"
-                            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-                            disabled={currentPage === 1}
-                        >
-                            Previous
-                        </button>
-                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                            <button
-                                key={p}
-                                className={`page-num ${currentPage === p ? "page-active" : ""}`}
-                                onClick={() => setCurrentPage(p)}
-                            >
-                                {p}
-                            </button>
-                        ))}
-                        <button
-                            className="page-btn"
-                            onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-                            disabled={currentPage === totalPages}
-                        >
-                            Next
-                        </button>
-                    </div>
-                             </div>
+        {/* ── Recommended Section ── */}
+        <div className="my-4">
 
-                                {/* Floating action button */}
-      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
-        <i className="bi bi-stars"></i>
-      </button>
-                            </div>
+
+          <div className="row g-3">
+            {makeup.recommended.slice(0, 3).map((decorator) => (
+              <div className="col-12 col-md-6 col-lg-4" key={decorator.id}>
+                <CateringCard caterer={decorator} recommended={true} eventlabel={false} type="makeup" />
+
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Divider ── */}
+        <div className="d-flex align-items-center justify-content-center my-5">
+          <img src={venueDivider} alt="Divider" className='img-fluid venue-divider' width={300} />
+        </div>
+
+        {/* ── All Venues Section ── */}
+        <div>
+          <h5 className="section-heading mb-4">All Makeup Artists in Karachi</h5>
+          <div className="row g-3">
+            {paginatedMakeupArtist.map((artist) => (
+              <div className="col-12 col-sm-6 col-lg-4" key={artist.id}>
+                <CateringCard caterer={artist} recommended={false} events={false} type='makeup' />
+              </div>
+            ))}
+          </div>
+
+          {/* ── Pagination ── */}
+          <div className="d-flex justify-content-center align-items-center gap-2 mt-5 py-5">
+            <button
+              className="page-btn"
+              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+              <button
+                key={p}
+                className={`page-num ${currentPage === p ? "page-active" : ""}`}
+                onClick={() => setCurrentPage(p)}
+              >
+                {p}
+              </button>
+            ))}
+            <button
+              className="page-btn"
+              onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        {/* Floating action button */}
+        <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
+          <i className="bi bi-stars"></i>
+        </button>
+      </div>
     </>
   )
 }

@@ -1,10 +1,12 @@
-import React,{useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import CateringCard from '../clientComponents/CateringCard.jsx';
 import photograph1 from '../../../assets/photograph1.png';
 import photograph2 from '../../../assets/photograph2.png';
 import photograph3 from '../../../assets/photograph3.png';
 import venueDivider from '../../../assets/venue-divider.png'
 import { useNavigate } from 'react-router-dom';
+import { getPhotography } from '../../../api/VendorsApi.jsx';
+
 const recommendedPhotographers = [
     {
         id: 1,
@@ -166,47 +168,81 @@ const ITEMS_PER_PAGE = 9;
 
 const PhotographyPage = () => {
     const navigate = useNavigate();
-    const [currentPage, setCurrentPage] = useState(1);
-        const totalPages = Math.ceil(allPhotographers.length / ITEMS_PER_PAGE);
-        const paginatedPhotographers = allPhotographers.slice(
-            (currentPage - 1) * ITEMS_PER_PAGE,
-            currentPage * ITEMS_PER_PAGE
-        );
 
-  return (
-    <>
-     <div className="container-xl py-4">
-    
-                        {/* ── Recommended Section ── */}
-                        <div className="my-4">
-                           
-                           
-                            <div className="row g-3">
-                                {recommendedPhotographers.map((photographer) => (
-                                    <div className="col-12 col-md-6 col-lg-4" key={photographer.id}>
-                                        <CateringCard caterer={photographer} recommended={true} eventlabel={true} type="photography" />
-                                    </div>
-                                ))}
+    const [photographers, setPhotographers] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+
+    useEffect(() => {
+        const fetchPhotographers = async () => {
+            try {
+                setLoading(true);
+                const photographersData = await getPhotography();
+
+
+                console.log("Complete API response:", photographersData);
+                console.log("Photographer data:", photographersData.data);
+
+                setPhotographers(photographersData.data);
+            } catch (err) {
+                setError("Failed to fetch photographers.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPhotographers();
+    }, []);
+
+    if (loading) {
+        return <h3>Loading photographers...</h3>;
+    }
+
+    if (error) {
+        return <h3>{error}</h3>;
+    }
+
+    const totalPages = Math.ceil(photographers.all.length / ITEMS_PER_PAGE);
+    const paginatedPhotographers = photographers.all.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
+
+    return (
+        <>
+            <div className="container-xl py-4">
+
+                {/* ── Recommended Section ── */}
+                <div className="my-4">
+
+
+                    <div className="row g-3">
+                        {photographers.recommended.slice(0,3).map((photographer) => (
+                            <div className="col-12 col-md-6 col-lg-4" key={photographer.id}>
+                                <CateringCard caterer={photographer} recommended={true} eventlabel={true} type="photography" />
                             </div>
-                        </div>
-    
-                        {/* ── Divider ── */}
-                        <div className="d-flex align-items-center justify-content-center my-5">
-                            <img src={venueDivider} alt="Divider" className='img-fluid venue-divider' width={300} />
-                        </div>
-    
-                        {/* ── All Venues Section ── */}
-                        <div>
-                            <h5 className="section-heading mb-4">All Venues in Karachi</h5>
-                            <div className="row g-3">
-                                {paginatedPhotographers.map((photographer) => (
-                                    <div className="col-12 col-sm-6 col-lg-4" key={photographer.id}>
-                                        <CateringCard caterer={photographer} recommended={false} events={true} />
-                                    </div>
-                                ))}
+                        ))}
+                    </div>
+                </div>
+
+                {/* ── Divider ── */}
+                <div className="d-flex align-items-center justify-content-center my-5">
+                    <img src={venueDivider} alt="Divider" className='img-fluid venue-divider' width={300} />
+                </div>
+
+                {/* ── All Venues Section ── */}
+                <div>
+                    <h5 className="section-heading mb-4">All Photographers in Karachi</h5>
+                    <div className="row g-3">
+                        {paginatedPhotographers.map((photographer) => (
+                            <div className="col-12 col-sm-6 col-lg-4" key={photographer.id}>
+                                <CateringCard caterer={photographer} recommended={false} events={true} />
                             </div>
-                            
-                            {/* ── Pagination ── */}
+                        ))}
+                    </div>
+
+                    {/* ── Pagination ── */}
                     <div className="d-flex justify-content-center align-items-center gap-2 mt-5 py-5">
                         <button
                             className="page-btn"
@@ -232,15 +268,15 @@ const PhotographyPage = () => {
                             Next
                         </button>
                     </div>
-                             </div>
+                </div>
 
-                                {/* Floating action button */}
-      <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
-        <i className="bi bi-stars"></i>
-      </button>
-                            </div>
-    </>
-  )
+                {/* Floating action button */}
+                <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
+                    <i className="bi bi-stars"></i>
+                </button>
+            </div>
+        </>
+    )
 }
 
 export default PhotographyPage

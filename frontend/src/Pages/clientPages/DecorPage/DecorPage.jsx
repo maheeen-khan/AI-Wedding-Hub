@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CateringCard from '../clientComponents/CateringCard.jsx';
 import decor1 from '../../../assets/decor1.png';
 import decor2 from '../../../assets/decor2.png';
@@ -8,6 +8,7 @@ import decor5 from '../../../assets/decor5.png';
 import decor6 from '../../../assets/decor6.png';
 import venueDivider from '../../../assets/venue-divider.png'
 import { useNavigate } from 'react-router-dom';
+import { getDecor } from '../../../api/VendorsApi.jsx';
 
 const recommendedDecorators = [
   { id: 1, name: "Grand Events by Z&H", location: "DHA Phase 6, Karachi", price: "PKR 500K - 2M", starting: "PKR 500K - 2M", rating: "4.9", image: decor4, events: ["Royal", "Premium"] },
@@ -34,9 +35,43 @@ const ITEMS_PER_PAGE = 9;
 
 const DecorPage = () => {
   const navigate = useNavigate();
+
+  const [decor, setDecor] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(allDecorators.length / ITEMS_PER_PAGE);
-  const paginatedDecorators = allDecorators.slice(
+
+  useEffect(() => {
+    const fetchDecor = async () => {
+      setLoading(true);
+      try {
+        const decorData = await getDecor();
+
+        console.log("Complete API response:", decorData);
+        console.log("Decor data:", decorData.data);
+
+        setDecor(decorData.data);
+      } catch (err) {
+        setError("Failed to fetch decor data");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDecor();
+  }, []);
+
+  if (loading) {
+    return <h3>Loading venues...</h3>;
+  }
+
+  if (error) {
+    return <h3>{error}</h3>;
+  }
+  
+  const totalPages = Math.ceil(decor.all.length / ITEMS_PER_PAGE);
+  const paginatedDecorators = decor.all.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
@@ -48,7 +83,7 @@ const DecorPage = () => {
         {/* ── Recommended Section ── */}
         <div className="my-4">
           <div className="row g-3">
-            {recommendedDecorators.map((decorator) => (
+            {decor.recommended.slice(0,3).map((decorator) => (
               <div className="col-12 col-md-6 col-lg-4" key={decorator.id}>
                 <CateringCard caterer={decorator} recommended={true} eventlabel={true} type="decor" />
               </div>
@@ -101,7 +136,7 @@ const DecorPage = () => {
         </div>
 
         {/* Floating action button */}
-        <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI'onClick={() => navigate('/Chatbot')}>
+        <button type="button" className="ww-fab" aria-label="AI Assistant" title='Need Wedding Ideas? Ask AI' onClick={() => navigate('/Chatbot')}>
           <i className="bi bi-stars"></i>
         </button>
 
