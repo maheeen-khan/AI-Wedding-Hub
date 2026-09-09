@@ -5,7 +5,7 @@ const VenueCard = ({ venue, recommended = false }) => {
   return (
     <div className="venue-card">
       <div className="venue-img-wrap">
-        <img src={venue.image} alt={venue.name} className="venue-img" />
+        <img src={venue.image_url} alt={venue.name} className="venue-img" />
         {recommended && (
           <span className="recommended-badge">Recommended</span>
         )}
