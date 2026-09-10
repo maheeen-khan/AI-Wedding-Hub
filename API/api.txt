@@ -1,86 +1,54 @@
 
-## Vendors
+## Vendor Listing APIs
 ```
-GET    /api/vendors
-GET    /api/vendors?category=venue
-GET    /api/vendors?city=Karachi
-GET    /api/vendors?is_recommended=true
-GET    /api/vendors?search=marquee
-GET    /api/vendors/:id
-POST   /api/vendors
-PUT    /api/vendors/:id
-DELETE /api/vendors/:id
-```
-
-## Category-Scoped Vendors
-```
-GET /api/vendors/venue/:id
-GET /api/vendors/catering/:id
-GET /api/vendors/photography/:id
-GET /api/vendors/decor/:id
-GET /api/vendors/makeup/:id
-GET /api/vendors/car-rental/:id
-GET /api/vendors/category/:category
+GET /api/vendors/:category
+→ Get all vendors by category
+→ Examples:
+  /api/vendors/venue
+  /api/vendors/catering
+  /api/vendors/photography
+  /api/vendors/decor
+  /api/vendors/makeup
+  /api/vendors/car-rental
 ```
 
-## Vendor Images
+---
+
+## Vendor Profile API (Single Vendor — Full Details)
 ```
-GET    /api/vendors/:id/images
-POST   /api/vendors/:id/images
-PUT    /api/vendors/:id/images/:imageId
-DELETE /api/vendors/:id/images/:imageId
+GET /api/vendors/:category/:id
+→ Get single vendor full profile
+→ Returns everything in one call:
+  name, location, rating, images,
+  tags, amenities, reviews, faqs,
+  category specific details
+→ Examples:
+  /api/vendors/venue/1
+  /api/vendors/catering/4
+  /api/vendors/photography/7
+  /api/vendors/decor/10
+  /api/vendors/makeup/13
+  /api/vendors/car-rental/16
 ```
 
-## Vendor Tags
+---
+
+## How Dynamic IDs Work
 ```
-GET    /api/vendors/:id/tags
-POST   /api/vendors/:id/tags
-DELETE /api/vendors/:id/tags/:tagId
+Step 1 → Call listing API
+  GET /api/vendors/venue
+  → Returns all venues with their real DB ids
+  { id: 1, name: "Sensational Marquee" }
+  { id: 2, name: "Royal Marquee" }
+  { id: 3, name: "Grand Palace" }
+
+Step 2 → Use real id in card link
+  <Link to={`/Vendor_Profile_Page/venue/${venue.id}`}>
+
+Step 3 → Profile page calls detail API
+  GET /api/vendors/venue/2
+  → Returns full profile of that vendor
 ```
 
-## Vendor Amenities
-```
-GET    /api/vendors/:id/amenities
-POST   /api/vendors/:id/amenities
-DELETE /api/vendors/:id/amenities/:amenityId
-```
-
-## Vendor Details
-```
-GET /api/vendors/:id/details
-PUT /api/vendors/:id/details
-```
-
-## Menu Packages (Catering)
-```
-GET    /api/vendors/:id/menu-packages
-POST   /api/vendors/:id/menu-packages
-PUT    /api/vendors/:id/menu-packages/:packageId
-DELETE /api/vendors/:id/menu-packages/:packageId
-```
-
-## Event Add-ons (Catering)
-```
-GET    /api/vendors/:id/addons
-POST   /api/vendors/:id/addons
-PUT    /api/vendors/:id/addons/:addonId
-DELETE /api/vendors/:id/addons/:addonId
-```
-
-## FAQs
-```
-GET    /api/vendors/:id/faqs
-POST   /api/vendors/:id/faqs
-PUT    /api/vendors/:id/faqs/:faqId
-DELETE /api/vendors/:id/faqs/:faqId
-```
-
-## Reviews
-```
-GET    /api/vendors/:id/reviews
-POST   /api/vendors/:id/reviews
-GET    /api/reviews/:id
-PUT    /api/reviews/:id
-DELETE /api/reviews/:id
-```
+---
 
