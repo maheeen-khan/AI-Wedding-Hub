@@ -50,7 +50,7 @@ export const venueData = {
   },
   pricing: {
     rangeLabel: "PRICE PER HEAD RANGE",
-    range: "PKR 500 - 1,180",
+    range: "PKR 500 - 1,180", 
     note: "*Prices vary based on menu selection and guest count",
     sampleMenu: [
       ["Chicken Biryani", "Premium Rice"],
