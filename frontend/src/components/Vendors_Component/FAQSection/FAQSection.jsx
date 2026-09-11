@@ -7,7 +7,7 @@ export default function FAQSection({ faqs = [] }) {
   const toggle = (i) => setOpenIndex((prev) => (prev === i ? null : i));
 
   return (
-    <section className="vp-faq">
+    <section className="vp-faq mt-5 mb-3">
       <h2 className="vp-faq__title">Frequently Asked Questions</h2>
       <div className="vp-faq__list">
         {faqs.map((faq, i) => {

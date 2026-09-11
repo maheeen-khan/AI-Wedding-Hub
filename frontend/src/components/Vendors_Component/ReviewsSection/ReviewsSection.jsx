@@ -19,7 +19,7 @@ function StarRating({ rating }) {
 
 export default function ReviewsSection({ title = "Couple Reviews", reviews = [] }) {
   return (
-    <section className="vp-reviews">
+    <section className="vp-reviews mt-5">
       <div className="vp-reviews__header">
         <h2 className="vp-reviews__title">{title}</h2>
         <button className="vp-reviews__write-btn">Write a review</button>
