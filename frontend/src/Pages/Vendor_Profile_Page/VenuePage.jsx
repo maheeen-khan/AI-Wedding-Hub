@@ -14,8 +14,7 @@ import FAQSection from "../../components/Vendors_Component/FAQSection/FAQSection
 import { venueData } from "./data/venueData";
 import "./tokens.css";
 import "./PageLayout.css";
-import { VenueDetailPage } from '../../api/VendorDetailPages/VenueDetailPage.jsx';
-
+import { VenueDetailPage } from '../../api/VendorDetailPages/VendorDetailPage.jsx';
 
 
 /** Route: /Vendor_Profile_Page/venue/:id */
