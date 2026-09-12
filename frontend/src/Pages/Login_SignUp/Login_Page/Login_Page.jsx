@@ -87,13 +87,30 @@ export default function Login_Page() {
 
       console.log("Login successful:", data);
 
+      const token = data.data.token;
+
       // Save JWT token
-      localStorage.setItem("token", data.data.token);
-      console.log("Token saved to localStorage:", localStorage.getItem("token"));
-      
+      localStorage.setItem("token", token);
+      console.log("Token saved to localStorage:", token);
+
+      // Decode the JWT payload (no extra API call needed — role is already in the token)
+      let role = null;
+      try {
+        const payload = JSON.parse(atob(token.split(".")[1]));
+        role = payload.role;
+      } catch (decodeErr) {
+        console.error("Failed to decode token payload:", decodeErr);
+      }
+
       setTimeout(() => {
-        navigate("/setup-profile");
-      }, 3000);
+        if (role === "vendor") {
+          navigate("/vendor_dashboard");
+        } else if (role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/setup-profile"); // client / couple
+        }
+      }, 1500);
 
     } catch (error) {
       const message =
@@ -173,7 +190,6 @@ return (
                 <a href="#" className="ww-forgot">Forgot Password?</a>
               </div>
               <div className="ww-input-wrapper">
-                <span className="ww-input-icon"><LockIcon /></span>
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"

@@ -26,6 +26,10 @@ CREATE TABLE vendors (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+ALTER TABLE vendors
+  ADD COLUMN user_id INT NOT NULL,
+  ADD FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
+
 -- 5. VENDOR IMAGES
 CREATE TABLE vendor_images (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -177,3 +181,18 @@ CREATE TABLE reviews (
 );
 
 
+CREATE TABLE bookings (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  vendor_id INT NOT NULL,
+  user_id INT NOT NULL,
+  couple_name VARCHAR(150) NOT NULL,
+  event_type VARCHAR(100),
+  event_date DATE,
+  guests INT,
+  note VARCHAR(255),
+  status ENUM('pending', 'confirmed', 'declined', 'completed') DEFAULT 'pending',
+  price DECIMAL(10,2) DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (vendor_id) REFERENCES vendors(id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

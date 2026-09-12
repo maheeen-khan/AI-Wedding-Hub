@@ -1,0 +1,102 @@
+/* Page-level layout for VendorDashboard only */
+.app { display: flex; min-height: 100vh; }
+
+.main {
+  flex: 1;
+  margin-left: 260px; /* matches sidebar width */
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* allow flex child to shrink below its content's natural width */
+}
+
+.content {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Welcome banner */
+.welcome-banner {
+  background: linear-gradient(120deg, #6d101d 0%, #8a1a28 100%);
+  border-radius: 16px;
+  padding: 32px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
+}
+.welcome-banner h1 { font-size: 24px; margin-bottom: 8px; }
+.welcome-banner p { opacity: 0.85; font-size: 14px; margin-bottom: 18px; }
+.welcome-banner > div:first-child { min-width: 0; }
+
+.btn-gold {
+  border: none; border-radius: 8px;
+  padding: 11px 22px;
+  font-size: 14px; font-weight: 600;
+  background: #d4a843; color: #fff;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.btn-gold:hover { opacity: 0.9; }
+.btn-gold:active { transform: scale(0.97); }
+
+.rating-badge {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  width: 110px; height: 110px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.rating-score { font-size: 26px; font-weight: 700; color: #e8c15a; }
+.rating-label { font-size: 11px; opacity: 0.8; }
+
+/* Cards grid (the Cards component fills the cells) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  background: #2b2b2b;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-size: 12px;
+  padding: 16px 28px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main { margin-left: 0; }
+  .welcome-banner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 700px) {
+  .content { padding: 20px; gap: 18px; }
+  .cards-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+}
+
+@media (max-width: 600px) {
+  .welcome-banner { padding: 22px; border-radius: 12px; }
+  .welcome-banner h1 { font-size: 19px; }
+  .welcome-banner p { font-size: 13px; margin-bottom: 14px; }
+  .btn-gold { padding: 9px 16px; font-size: 13px; }
+  .rating-badge { width: 84px; height: 84px; align-self: flex-start; }
+  .rating-score { font-size: 20px; }
+  .rating-label { font-size: 10px; text-align: center; }
+  .footer { padding: 14px 16px; font-size: 11px; }
+}
+
+@media (max-width: 420px) {
+  .content { padding: 14px; gap: 14px; }
+  .cards-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+}
