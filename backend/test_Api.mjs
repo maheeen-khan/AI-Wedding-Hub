@@ -1,51 +1,79 @@
-// test-vendor-api.mjs
-// Run with: node test-vendor-api.mjs
+// test-all-apis.mjs
+// Run with: node test-all-apis.mjs
 
 const BASE_URL = "http://localhost:5000/api";
-const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbGlzaGJhQGdtYWlsLmNvbSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3ODkyMTUxNTYsImV4cCI6MTc4OTgxOTk1Nn0.FDmjsY8eMSY4fPL0PXn7fSIgBF60XPmdqJQb8XKogss";
+const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbGlzaGJhQGdtYWlsLmNvbSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3ODkyMjQ3MzksImV4cCI6MTc4OTgyOTUzOX0.NLWz6ZEHvPOcJu5l3Utoas3SqMcHC2-NbUZ748eJR_I"; // get from your login endpoint
 
-async function testGetProfile() {
-  console.log("\n--- Testing GET /vendors/profile ---");
-  const res = await fetch(`${BASE_URL}/vendors/profile`, {
-    headers: { Authorization: `Bearer ${TOKEN}` },
-  });
-  console.log("Status:", res.status);
-  console.log(await res.json());
-}
+const headers = {
+  Authorization: `Bearer ${TOKEN}`,
+};
 
-async function testRegisterBusiness() {
-  console.log("\n--- Testing POST /vendors/register-business ---");
-
-  const fd = new FormData();
-  fd.append("name", "Royal Catering Karachi");
-  fd.append("category", "catering");
-  fd.append("location", "DHA Phase 5");
-  fd.append("city", "Karachi");
-  fd.append("about", "Premium catering for weddings");
-  fd.append("price_min", "1500");
-  fd.append("price_max", "5000");
-  fd.append("price_label", "Per Person / Head");
-  fd.append("min_pax", "100");
-  fd.append("service_type", "Buffet");
-  fd.append("buffet_live", "Live BBQ Counter");
-  fd.append("staffing_notice", "48 hours");
-  fd.append("amenities", JSON.stringify(["Professional Host / Event Coordinator"]));
-  fd.append("menu_packages", JSON.stringify([{ name: "Gold Package", profile: "5 dishes", price: "PKR 3500", is_highlighted: true }]));
-  fd.append("event_addons", JSON.stringify([{ addon_name: "Live BBQ", price: "PKR 15000" }]));
-
-  const res = await fetch(`${BASE_URL}/vendors/register-business`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${TOKEN}` },
-    body: fd,
-  });
-
-  console.log("Status:", res.status);
-  console.log(await res.json());
+async function testEndpoint(name, url, options = {}) {
+  console.log(`\n--- ${name} ---`);
+  console.log("URL:", url);
+  try {
+    const res = await fetch(url, options);
+    const contentType = res.headers.get("content-type") || "";
+    const body = contentType.includes("application/json")
+      ? await res.json()
+      : await res.text();
+    console.log("Status:", res.status);
+    console.log("Body:", body);
+  } catch (err) {
+    console.log("Request failed:", err.message);
+  }
 }
 
 async function run() {
-  await testRegisterBusiness();
-  await testGetProfile();
+  // --- Vendor profile ---
+  await testEndpoint(
+    "GET /vendors/profile",
+    `${BASE_URL}/vendors/profile`,
+    { headers }
+  );
+
+  // --- Vendor dashboard ---
+  await testEndpoint(
+    "GET /vendors/dashboard/stats",
+    `${BASE_URL}/vendors/dashboard/stats`,
+    { headers }
+  );
+
+  await testEndpoint(
+    "GET /vendors/dashboard/requests",
+    `${BASE_URL}/vendors/dashboard/requests`,
+    { headers }
+  );
+
+  await testEndpoint(
+    "GET /vendors/dashboard/confirmed",
+    `${BASE_URL}/vendors/dashboard/confirmed`,
+    { headers }
+  );
+
+  // --- Client bookings ---
+  await testEndpoint(
+    "GET /bookings/my-bookings",
+    `${BASE_URL}/bookings/my-bookings`,
+    { headers }
+  );
+
+  await testEndpoint(
+    "POST /bookings (create booking)",
+    `${BASE_URL}/bookings`,
+    {
+      method: "POST",
+      headers: { ...headers, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        vendor_id: 1,
+        couple_name: "Test Couple",
+        event_type: "Walima",
+        event_date: "2026-12-01",
+        guests: 200,
+        note: "Test booking from script",
+      }),
+    }
+  );
 }
 
 run().catch(console.error);

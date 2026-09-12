@@ -7,10 +7,10 @@ import authRoutes from './Routes/signup&login.mjs';
 import profileRoutes from './Routes/profile.mjs';
 import eventRoutes from './Routes/events.mjs';
 import vendorRoutes from './Routes/vendorRoutes.mjs';
-
+import bookingRoutes from "./Routes/VendorbookingRoutes.mjs";
+import clientBookingRoutes from "./Routes/ClientBookingRoutes.mjs";
 import path from "path";
 import { fileURLToPath } from "url";
-
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -29,8 +29,16 @@ app.get('/api/health', (req, res) => res.json({ status: 'OK' }));
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/events', eventRoutes);
+
+// IMPORTANT: more specific vendor paths MUST be mounted before the
+// generic '/api/vendors' router, or its '/:category/:id' catch-all
+// will intercept requests like '/api/vendors/dashboard/stats' first.
+app.use("/api/vendors/dashboard", bookingRoutes);
 app.use('/api/vendors', vendorRoutes);
+
+app.use("/api/bookings", clientBookingRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 app.use((req, res) => res.status(404).json({ message: 'Route not found.' }));
 app.use((err, req, res, next) => {
   console.error(err.stack);
