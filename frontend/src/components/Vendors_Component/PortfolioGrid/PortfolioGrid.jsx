@@ -1,16 +1,26 @@
 import "./PortfolioGrid.css";
 
-export default function PortfolioGrid({ title = "Portfolio Highlights", images = [] }) {
+export default function PortfolioGrid({
+  title = "Portfolio Highlights",
+  images = [],
+}) {
   return (
-    <section className="vp-portfolio">
-      <div className="vp-portfolio__header">
+    <section className="vp-portfolio mt-5 mb-3">
+      <div className="vp-portfolio__header mb-4">
         <h2 className="vp-portfolio__title">{title}</h2>
-        <button className="vp-portfolio__view-all">View All Work</button>
+
+        <button className="vp-portfolio__view-all">
+          View All Work
+        </button>
       </div>
+
       <div className="vp-portfolio__grid">
-        {images.map((src, i) => (
+        {images.map((image, i) => (
           <div key={i} className="vp-portfolio__item">
-            <img src={src} alt={`Portfolio ${i + 1}`} />
+            <img
+              src={image.src}
+              alt={image.alt || `Portfolio ${i + 1}`}
+            />
           </div>
         ))}
       </div>

@@ -12,6 +12,7 @@ import {
   Fuel,
   UserCheck,
   Sparkles,
+  Truck 
 } from "lucide-react";
 import "./InfoCardsGrid.css";
 
@@ -29,6 +30,7 @@ const ICONS = {
   fuel: Fuel,
   driver: UserCheck,
   sparkles: Sparkles,
+  truck: Truck
 };
 
 export default function InfoCardsGrid({ cards = [] }) {
