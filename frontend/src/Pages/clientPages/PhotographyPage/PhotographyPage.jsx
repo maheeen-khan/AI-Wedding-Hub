@@ -237,7 +237,7 @@ const PhotographyPage = () => {
                     <div className="row g-3">
                         {paginatedPhotographers.map((photographer) => (
                             <div className="col-12 col-sm-6 col-lg-4" key={photographer.id}>
-                                <CateringCard caterer={photographer} recommended={false} events={true} />
+                                <CateringCard caterer={photographer} recommended={false} events={true}  type="photography" />
                             </div>
                         ))}
                     </div>

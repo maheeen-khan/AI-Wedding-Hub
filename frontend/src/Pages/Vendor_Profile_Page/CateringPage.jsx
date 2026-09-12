@@ -79,7 +79,7 @@ export default function CateringPage() {
 
   return (
     <div className="vp-page">
-      <Navbar breadcrumbLabel={vendor.breadcrumbLabel} breadcrumbHref="/vendors/catering" />
+      <Navbar breadcrumbLabel={vendor.breadcrumbLabel} breadcrumbHref="/catering" />
 
       <main className="vp-page__main">
         <ImageGallery images={vendor.images?.map(img => img.image_url) || []} vendorName={vendor.name} />

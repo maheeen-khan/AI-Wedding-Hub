@@ -27,3 +27,24 @@ export const CateringDetailPage = async (id) => {
     throw error;
   }
 }
+
+export const PhotographyDetailPage = async (id) => {
+    try {
+        const response = await axios.get(`${API_URL}/photography/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching photography details:", error);
+        throw error;
+    }
+
+  }
+
+export const DecorDetailPage = async (id) => {
+    try {
+        const response = await axios.get(`${API_URL}/decor/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching decor details:", error);
+        throw error;
+    }
+}
