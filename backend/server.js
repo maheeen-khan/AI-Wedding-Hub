@@ -8,6 +8,12 @@ import profileRoutes from './Routes/profile.mjs';
 import eventRoutes from './Routes/events.mjs';
 import vendorRoutes from './Routes/vendorRoutes.mjs';
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(helmet());
@@ -16,6 +22,7 @@ app.use(cors({
   credentials: true,
 }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/api/health', (req, res) => res.json({ status: 'OK' }));
 
@@ -23,7 +30,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/vendors', vendorRoutes);
-
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use((req, res) => res.status(404).json({ message: 'Route not found.' }));
 app.use((err, req, res, next) => {
   console.error(err.stack);
