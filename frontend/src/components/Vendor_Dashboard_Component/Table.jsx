@@ -5,7 +5,7 @@ import "./Table.css";
  * Reusable table — pass columns config + rows.
  * Each column can have a custom render function.
  */
-export default function Table({ title, viewAll, search, columns, rows }) {
+export default function Table({ title, viewAll, onViewAll, search, columns, rows }) {
   const safeRows = Array.isArray(rows) ? rows : [];
 
   return (

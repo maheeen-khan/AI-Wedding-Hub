@@ -58,7 +58,7 @@ export default function Sidebar({ open, onClose }) {
       />
       <aside className={`sidebar ${open ? "open" : ""}`}>
         <div className="logo">
-          <span className="logo-icon">✦</span> WeddingWiz
+          <span className="logo-icon">✦</span> WeddingWalla
         </div>
 
         <div className="vendor-card">
