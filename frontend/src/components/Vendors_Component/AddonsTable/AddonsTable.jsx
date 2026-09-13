@@ -11,7 +11,7 @@ export default function AddonsTable({ title, columns = [], rows = [] }) {
   const colCount = columns.length;
 
   return (
-    <section className="vp-addons">
+    <section className="vp-addons mt-5">
       <h2 className="vp-addons__title">{title}</h2>
       <div className="vp-addons__table">
         <div className={`vp-addons__head vp-addons__row--cols-${colCount}`}>

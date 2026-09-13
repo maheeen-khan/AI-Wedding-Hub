@@ -33,6 +33,7 @@ const allDecorators = [
 
 const ITEMS_PER_PAGE = 9;
 
+
 const DecorPage = () => {
   const navigate = useNavigate();
 

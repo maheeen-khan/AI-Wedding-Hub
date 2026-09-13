@@ -5,7 +5,7 @@ GET /api/vendors/:category
 → Get all vendors by category
 → Examples:
   /api/vendors/venue
-  /api/vendors/catering
+  /api/vendors/catering 
   /api/vendors/photography
   /api/vendors/decor
   /api/vendors/makeup

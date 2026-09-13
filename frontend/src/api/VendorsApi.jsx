@@ -71,4 +71,4 @@ export const getCarRental = async () => {
     console.error("Error fetching car rental:", error);
     throw error;
   }
-}
+} 

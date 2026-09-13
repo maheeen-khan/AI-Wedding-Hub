@@ -3,9 +3,9 @@ import "./AmenitiesSection.css";
 
 export default function AmenitiesSection({ title = "Available Amenities", amenities = [] }) {
   return (
-    <section className="vp-amenities">
+    <section className="vp-amenities mt-4">
       <h2 className="vp-amenities__title">{title}</h2>
-      <div className="vp-amenities__list">
+      <div className="vp-amenities__list mt-4">
         {amenities.map((item) => (
           <span key={item} className="vp-amenities__chip">
             <Check size={14} />

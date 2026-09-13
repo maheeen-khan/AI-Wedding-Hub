@@ -10,7 +10,7 @@ export default function VendorInfoHeader({
 }) {
   return (
     <div className="vp-info-header">
-      <div className="vp-info-header__tags">
+      <div className="vp-info-header__tags my-4">
         {tags.map((tag, i) => (
           <span
             key={tag}
@@ -28,7 +28,7 @@ export default function VendorInfoHeader({
 
       <h1 className="vp-info-header__name">{name}</h1>
 
-      <div className="vp-info-header__meta">
+      <div className="vp-info-header__meta mb-3">
         <span className="vp-info-header__location">
           <MapPin size={15} />
           {location}

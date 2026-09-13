@@ -9,8 +9,8 @@ import "./PackageTiers.css";
  */
 export default function PackageTiers({ title = "Packages", tiers = [] }) {
   return (
-    <section className="vp-tiers">
-      {title && <h2 className="vp-tiers__title">{title}</h2>}
+    <section className="vp-tiers mb-4">
+      {title && <h2 className="vp-tiers__title mb-4">{title}</h2>}
       <div className="vp-tiers__grid">
         {tiers.map((tier) => (
           <div

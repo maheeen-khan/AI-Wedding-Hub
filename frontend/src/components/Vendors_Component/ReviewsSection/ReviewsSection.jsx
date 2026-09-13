@@ -19,7 +19,7 @@ function StarRating({ rating }) {
 
 export default function ReviewsSection({ title = "Couple Reviews", reviews = [] }) {
   return (
-    <section className="vp-reviews">
+    <section className="vp-reviews mt-5">
       <div className="vp-reviews__header">
         <h2 className="vp-reviews__title">{title}</h2>
         <button className="vp-reviews__write-btn">Write a review</button>
@@ -30,10 +30,10 @@ export default function ReviewsSection({ title = "Couple Reviews", reviews = [] 
           <div key={review.name} className="vp-reviews__card">
             <div className="vp-reviews__card-top">
               <div className="vp-reviews__author">
-                <div className="vp-reviews__avatar">{review.name.charAt(0)}</div>
+                <div className="vp-reviews__avatar">{review.reviewer_name?.trim().charAt(0).toUpperCase()}</div>
                 <div>
-                  <p className="vp-reviews__name">{review.name}</p>
-                  <p className="vp-reviews__event-type">{review.eventType}</p>
+                  <p className="vp-reviews__name">{review.reviewer_name}</p>
+                  <p className="vp-reviews__event-type">{review.event_type}</p>
                 </div>
               </div>
               <StarRating rating={review.rating} />
