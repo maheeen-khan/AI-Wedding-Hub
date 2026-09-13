@@ -24,6 +24,9 @@ import VendorProfileRouter from './Pages/Vendor_Profile_Page/VendorProfileRouter
 import Services1 from './Pages/clientPages/clientComponents/Services1.jsx';
 import Invitation from './Pages/Invitation/Invitation.jsx';
 import ContactUs from './Pages/clientPages/ContactUsPage/ContactUs.jsx';
+import VendorDashboard from './Pages/Vendor_Dashboard/VendorDashboard/VendorDashboard.jsx';
+import RegisterBusiness from './Pages/Vendor_Dashboard/Register_Business/Register_Business.jsx';
+import AllRequests from "./Pages/Vendor_Dashboard/All_Request_Page/AllRequest.jsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,7 +35,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<Navigate to="/login" replace />} /> */}
+          
           <Route path="/login" element={<Login_Page />} />
           <Route path="/sign-up" element={<SignUp_Page />} />
           <Route path='/setup-profile' element={<SetupProfilePage />} />
@@ -62,7 +65,9 @@ function App() {
         <Route path='/base' element={<BasePage/>}/>
 
         <Route path='/booking-confirmation' element={<BookingConfirmation/>}/>t
-
+        <Route path='/vendor_dashboard' element={<VendorDashboard/>}/>
+        <Route path="/vendor-requests" element={<AllRequests />} />
+        <Route path='/register-business' element={<RegisterBusiness />} />
           <Route path='/admin' element={<Admin_Layout />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path='dashboard' element={<Admin_Dashboard />} />
@@ -78,3 +83,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

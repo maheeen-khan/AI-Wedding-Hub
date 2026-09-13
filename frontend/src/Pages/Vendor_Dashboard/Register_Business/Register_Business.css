@@ -1,0 +1,381 @@
+/* RegisterBusiness.css */
+
+.register-business-form {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  font-family: "Segoe UI", "Poppins", sans-serif;
+  color: #3a2b28;
+}
+
+.register-business-form h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #7a1f2b;
+  margin-bottom: 8px;
+}
+
+.register-business-form .subtitle {
+  text-align: center;
+  color: #8a7a75;
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+.form-error {
+  background: #fdecea;
+  border: 1px solid #f5c2c0;
+  color: #9c2b2b;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* ---------- Sections ---------- */
+.form-section {
+  background: #fffaf6;
+  border: 1px solid #f0ded6;
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(122, 31, 43, 0.04);
+}
+
+.form-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #7a1f2b;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-hint {
+  font-size: 12px;
+  color: #a8938c;
+  margin-bottom: 16px;
+}
+
+/* ---------- Form grid & fields ---------- */
+.form-grid,
+.detail-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 24px;
+  margin-top: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5c4844;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input,
+.form-group select {
+  border: 1px solid #e5d3cb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #fff;
+  color: #3a2b28;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #b8323f;
+  box-shadow: 0 0 0 3px rgba(184, 50, 63, 0.12);
+}
+
+.checkbox-group label {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #b8323f;
+}
+
+/* ---------- Cover & gallery uploads ---------- */
+.cover-upload,
+.gallery-upload {
+  margin-top: 16px;
+}
+
+.cover-upload label,
+.gallery-upload label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #5c4844;
+  margin-bottom: 8px;
+}
+
+.cover-preview {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e5d3cb;
+}
+
+.cover-upload input[type="file"],
+.gallery-upload input[type="file"] {
+  display: block;
+  font-size: 13px;
+  padding: 8px;
+  border: 1px dashed #d8b8a8;
+  border-radius: 8px;
+  background: #fff7f2;
+  cursor: pointer;
+  width: 100%;
+}
+
+.gallery-preview-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.gallery-preview-row img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #e5d3cb;
+}
+
+/* ---------- Category tabs (if you render CATEGORY_TABS as buttons) ---------- */
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.category-tab {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #e5d3cb;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7a1f2b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.category-tab.active {
+  background: #7a1f2b;
+  color: #fff;
+  border-color: #7a1f2b;
+}
+
+.category-tab:hover:not(.active) {
+  background: #fdf0ec;
+}
+
+/* ---------- Buttons ---------- */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #c9a89c;
+  color: #7a1f2b;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: #fdf0ec;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #b8323f, #7a1f2b);
+  color: #fff;
+  flex: 1;
+  min-width: 240px;
+}
+
+.btn-gold:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+/* ---------- Amenities ---------- */
+.amenities-block {
+  margin-top: 24px;
+}
+
+.block-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #5c4844;
+  margin-bottom: 12px;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.amenity-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid #e5d3cb;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #3a2b28;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.amenity-chip:has(input:checked) {
+  border-color: #b8323f;
+  background: #fdf0ec;
+}
+
+.amenity-chip input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #b8323f;
+}
+
+/* ---------- Repeatable rows (packages / add-ons) ---------- */
+.repeatable-block {
+  margin-top: 28px;
+}
+
+.repeatable-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.repeatable-row input {
+  flex: 1;
+  min-width: 140px;
+  border: 1px solid #e5d3cb;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13px;
+  color: #3a2b28;
+  outline: none;
+}
+
+.repeatable-row input:focus {
+  border-color: #b8323f;
+  box-shadow: 0 0 0 3px rgba(184, 50, 63, 0.12);
+}
+
+.highlight-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #7a1f2b;
+  white-space: nowrap;
+}
+
+.highlight-toggle input {
+  accent-color: #b8323f;
+}
+
+.remove-row-btn {
+  background: #fdecea;
+  color: #9c2b2b;
+  border: none;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.remove-row-btn:hover {
+  background: #f8d5d2;
+}
+
+.add-row-btn {
+  background: none;
+  border: 1px dashed #c9a89c;
+  color: #7a1f2b;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.add-row-btn:hover {
+  background: #fdf0ec;
+}
+
+@media (max-width: 640px) {
+  .amenities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .form-grid,
+  .detail-fields-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn-gold {
+    width: 100%;
+  }
+}
