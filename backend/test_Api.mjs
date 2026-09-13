@@ -2,7 +2,7 @@
 // Run with: node test-all-apis.mjs
 
 const BASE_URL = "http://localhost:5000/api";
-const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbGlzaGJhQGdtYWlsLmNvbSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3ODkyMjQ3MzksImV4cCI6MTc4OTgyOTUzOX0.NLWz6ZEHvPOcJu5l3Utoas3SqMcHC2-NbUZ748eJR_I"; // get from your login endpoint
+const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbGlzaGJhQGdtYWlsLmNvbSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3ODkyOTg2MDQsImV4cCI6MTc4OTkwMzQwNH0.hX_AIzlfHzaN5Nitsih57wR6sGWHO2uTTN8lAQOwWKA"; // get from your login endpoint
 
 const headers = {
   Authorization: `Bearer ${TOKEN}`,

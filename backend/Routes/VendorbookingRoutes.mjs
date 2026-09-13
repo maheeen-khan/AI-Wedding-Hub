@@ -6,12 +6,13 @@ import {
   setBookingStatus,
 } from "../Controllers/vendorSideBookingController.mjs";
 import { verifyToken } from "../Middlewares/tokenVerification.mjs";
+import { requireRole } from "../Middlewares/requireRole.mjs";
 
 const router = express.Router();
 
-router.get("/stats", verifyToken, getStats);
-router.get("/requests", verifyToken, getRequests);
-router.get("/confirmed", verifyToken, getConfirmed);
-router.patch("/bookings/:id/status", verifyToken, setBookingStatus);
+router.get("/stats", verifyToken, requireRole('vendor'), getStats);
+router.get("/requests", verifyToken, requireRole('vendor'), getRequests);
+router.get("/confirmed", verifyToken, requireRole('vendor'), getConfirmed);
+router.patch("/bookings/:id/status", verifyToken, requireRole('vendor'), setBookingStatus);
 
 export default router;
