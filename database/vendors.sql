@@ -196,3 +196,13 @@ CREATE TABLE bookings (
   FOREIGN KEY (vendor_id) REFERENCES vendors(id) ON DELETE CASCADE,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+
+
+
+
+ALTER TABLE vendors 
+ADD COLUMN capacity VARCHAR(50) AFTER location;
+UPDATE vendors SET capacity = '300-1000' WHERE id = 1;
+UPDATE vendors SET capacity = '300-1000' WHERE id = 2;
+UPDATE vendors SET capacity = '400-800'  WHERE id = 3;
